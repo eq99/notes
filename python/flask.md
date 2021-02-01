@@ -17,7 +17,7 @@ $ sh -c "$(curl -SfL https://repo.anaconda.com/miniconda/Miniconda3-py37_4.9.2-L
 
 This Step is optional.
 
-[清华镜像源地址](https://mirrors.tuna.tsinghua.edu.cn/help/anaconda/)
+[Tsinghua Mirrors](https://mirrors.tuna.tsinghua.edu.cn/help/anaconda/)
 
 - Copy the following lines to`.condarc`：
 

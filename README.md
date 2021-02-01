@@ -1,2 +1,5 @@
 # notes
-An awesome notes for you to develop your apps
+
+An awesome notes repo.
+
+You can find topics at relevant folder.
