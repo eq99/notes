@@ -70,7 +70,7 @@ $n$ 元真值函数：$F:\{0,1\}^n \rightarrow \{0,1\}$
 | $ A \and B \Leftrightarrow B \and A$                         |          |
 | $(A \or B)\or C \Leftrightarrow A \or (B \or C)$             |          |
 | $(A \and B)\and C \Leftrightarrow A \and (B \and C)$         |          |
-| $A \or (B\and C) \Leftrightarrow (A \or B) \and (A \or C)$   |          |
+| $A \or (B\and C \and D) \Leftrightarrow (A \or B) \and (A \or C) \and (A \or D)$ |          |
 | $A \and (B\or C) \Leftrightarrow (A \and B) \or (A \and C)$  |          |
 | $\neg (A \or B) \Leftrightarrow \neg A \and \neg B$          |          |
 | $\neg (A \and B) \Leftrightarrow \neg A \or \neg B$          |          |
@@ -134,7 +134,7 @@ $n$ 元真值函数：$F:\{0,1\}^n \rightarrow \{0,1\}$
 
 
 
-求主析取范式方法：
+求主析取范式方法1：
 
 1. 先求 $A$ 析取范式 $A^{\prime}$
 2. 若$A^{\prime}$ 的某简单合取式不含某个命题变项 $p$ 或 $\neg p$ , 则:
@@ -143,8 +143,8 @@ $$
 B\Leftrightarrow B\and 1 \Leftrightarrow B\and (p \or \neg p) \Leftrightarrow (B\and p)\or( B \and \neg p)
 $$
 
-3. 合并相同命题变项合极小项如 $p \and p$，矛盾式。
-4. 将极小项按角标从小到达排列。
+3. 把变成极小项的简单合取式用写成 $m_i$ 的形式。
+4. 将 $m_i$ 合并，然后从小到大排列。
 
 
 
@@ -153,6 +153,12 @@ $$
 1. 判断两个公式是否等值
 2. 判断公式的类型：重言式，矛盾式，可满足式？
 3. 真与假赋值方法
+
+:memo: 思考题：
+
+- 永假式的主析取范式与主合取范式是什么？
+
+- $p \and q$ 的主析取范式与主合取范式是什么？
 
 
 
@@ -199,17 +205,19 @@ $$
 | $(A\rightarrow B) \and A \Rightarrow B$                      | 假言推理   |
 | $(A\rightarrow B) \and \neg B \Rightarrow \neg A$            | 拒取式     |
 | $(A\or B) \and \neg A \Rightarrow B$                         | 析取三段论 |
-| $(A\rightarrow B) \and (A\rightarrow C)\Rightarrow (A\rightarrow C)$ | 假言三段论 |
+| $(A\rightarrow B) \and (B\rightarrow C)\Rightarrow (A\rightarrow C)$ | 假言三段论 |
 | $(A\leftrightarrow B) \and (A\leftrightarrow C)\Rightarrow (A\leftrightarrow C)$ | 等价三段论 |
 | $(A\rightarrow B) \and (C\rightarrow D) \and (A \or C)\Rightarrow (B\or D)$ | 构造性两难 |
 
 构造证明两种技巧：
 
-1. 把要证的结论变成前提：
+1. 附加前提证明法，把结论变成前提：
 
 $$
 (A_1\and A_2\and \dots\and A_n)\rightarrow (A\rightarrow B) \Leftrightarrow (A_1\and A_2\and \dots\and A_n \and A)\rightarrow B
 $$
+
+其实：$\neg A_n \or (\neg A \or B)\Leftrightarrow \neg A_n \or \neg A \or B$
 
 2. 归谬法：
 
