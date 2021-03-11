@@ -19,6 +19,8 @@
 | 析取连接词 | $\or$             | $p \or q$             | $p$ 或 $q$， 析取式      |
 | 蕴含连接词 | $\rightarrow$     | $p \rightarrow q$     | 若 $p$ 则 $q$， 蕴含式   |
 | 等价连接词 | $\leftrightarrow$ | $p \leftrightarrow q$ | $p$ 当且仅当 $q$，等价式 |
+| 与非联结词 | $\uparrow$        | $p \uparrow q$        | $\neg (p \and q)$        |
+| 或非联结词 | $\downarrow$      | $p \downarrow q$      | $\neg (p \or q)$         |
 
 命题符号化步骤：
 
@@ -99,6 +101,127 @@ $n$ 元真值函数：$F:\{0,1\}^n \rightarrow \{0,1\}$
 析取范式：由有限个简单合取式构成的析取式。
 
 合取范式：由有限个简单析取式构成的合取式。
+
+
+
+两个性质：
+
+一个析取范式是矛盾式，当且仅当它的每个简单合取式是矛盾式。
+
+一个合取范式是重言式，当且仅当它的每个简单析取式是重言式。
+
+
+
+范式存在定理：
+
+任何一个公式都存在一个与之等值的析取范式与合取范式。但是不唯一。
+
+
+
+极小项与极大项：
+
+设有 $n$ 个命题变项，若在简单合取式中每个命题变项与其否定有且仅有一个出现一次，这样的简单合取式称为极小项。 $n$ 个命题变项可形成  $2^n$ 个极小项。
+
+设有 $n$ 个命题变项，若在简单析取式中每个命题变项与其否定有且仅有一个出现一次，这样的简单析取式称为极大项。 $n$ 个命题变项可形成  $2^n$ 个极大项。
+
+标记方法：把命题变项按字典序排列，如 $a, c, \neg e, p, \neg q, r, x_1, x_2$；对应二进制位为：$11010111$，有 $\neg $ 的用0表示，没有的用1表示；对应十进制描述：$m_{215}$，其实就是二进制模式对应的十进制数。
+
+
+
+主析取范式：如果公式 $A$ 的析取范式的简单合取式全是极小项。任何公式都有唯一的主析取范式。
+
+主合取范式：如果公式 $A$ 的合取范式的简单析取式全是极大项。任何公式都有唯一的主合取范式。
+
+
+
+求主析取范式方法：
+
+1. 先求 $A$ 析取范式 $A^{\prime}$
+2. 若$A^{\prime}$ 的某简单合取式不含某个命题变项 $p$ 或 $\neg p$ , 则:
+
+$$
+B\Leftrightarrow B\and 1 \Leftrightarrow B\and (p \or \neg p) \Leftrightarrow (B\and p)\or( B \and \neg p)
+$$
+
+3. 合并相同命题变项合极小项如 $p \and p$，矛盾式。
+4. 将极小项按角标从小到达排列。
+
+
+
+主析取范式与主合取范式的应用：
+
+1. 判断两个公式是否等值
+2. 判断公式的类型：重言式，矛盾式，可满足式？
+3. 真与假赋值方法
+
+
+
+## 全功能集
+
+全功能集：设 $S$ 是一个联结词的集合，如果任一真值函数都可用仅含 $S$ 中的联结词的命题公式表示，则称 $S$ 为全功能集。
+
+:star:**定理**：$\{\neg,\and, \or \}$， $\{\neg, \and\}$，$\{\neg, \or\}$，$\{\neg, \rightarrow\}$ ，$\{\uparrow\}$，$\{\downarrow\}$ 都是全功能集。
+
+证明方法：
+
+由于任何公式可以表示成主析取范式，第一个成立。
+
+由于 $p\or q \Leftrightarrow \neg \neg (p \or q) \Leftrightarrow \neg (\neg p \and\neg q )$，可见 $\or$ 可以由 $\neg, \and$ 替换。
+
+其实任何包含全功能集的联结词集合式全功能集。
+
+
+
+最简展开式：对主析取范式进行简化，使其包含最少的运算。
+
+:sparkles: 最简展开式求解方法：
+
+:question:
+
+
+
+## 推理
+
+若 $(A_1 \and A_2\and\dots\and A_n ) \rightarrow B$ 为重言式，则称  $A_1 \and A_2\and\dots\and A_n$ 推出结论 $B$ 的推理正确，$B$ 称为 $A_1 \and A_2\and\dots\and A_n$ 的有效结论或逻辑结论。
+
+
+
+与用 $A \Leftrightarrow B$ 表示 $A \leftrightarrow B$ 是重言式类似，用 $A \Rightarrow B$ 表示 $A \rightarrow B$ 是重言式。
+
+:bulb:推理正确不能保证结论正确。
+
+推理定律：
+
+| 定律                                                         | 描述       |
+| ------------------------------------------------------------ | ---------- |
+| $A \Rightarrow (A\or B)$                                     | 附加       |
+| $(A\and B) \Rightarrow A$                                    | 化简       |
+| $(A\rightarrow B) \and A \Rightarrow B$                      | 假言推理   |
+| $(A\rightarrow B) \and \neg B \Rightarrow \neg A$            | 拒取式     |
+| $(A\or B) \and \neg A \Rightarrow B$                         | 析取三段论 |
+| $(A\rightarrow B) \and (A\rightarrow C)\Rightarrow (A\rightarrow C)$ | 假言三段论 |
+| $(A\leftrightarrow B) \and (A\leftrightarrow C)\Rightarrow (A\leftrightarrow C)$ | 等价三段论 |
+| $(A\rightarrow B) \and (C\rightarrow D) \and (A \or C)\Rightarrow (B\or D)$ | 构造性两难 |
+
+构造证明两种技巧：
+
+1. 把要证的结论变成前提：
+
+$$
+(A_1\and A_2\and \dots\and A_n)\rightarrow (A\rightarrow B) \Leftrightarrow (A_1\and A_2\and \dots\and A_n \and A)\rightarrow B
+$$
+
+2. 归谬法：
+
+$$
+(A_1\and A_2\and \dots\and A_n \and A)\rightarrow (B) \Leftrightarrow \neg (A_1\and A_2\and \dots\and A_n \and A \and \neg B)
+$$
+
+只要 $A_1\and A_2\and \dots\and A_n \and A \and \neg B$ 是矛盾式，就能说明推理正确。
+
+
+
+
 
 
 
