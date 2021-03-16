@@ -2,7 +2,7 @@
 
 
 
-开发环境搭建
+# 开发环境搭建
 
 - 安装编译器：
 
@@ -23,3 +23,17 @@ $ g++ --version
 # https://docs.conan.io/en/latest/installation.html
 $ pip install conan
 ```
+
+
+
+
+
+# 类
+
+
+
+犯过的错误：
+
+- 声明构造函数加了 `void`
+- class 与 struct 后面没加 `;`
+
