@@ -173,9 +173,108 @@ $R(U)=R(A_1,A_2,\dots,A_n)$
 
 
 
-## 关系代数
+**关系的完整性约束**
 
 
+
+- 实体完整性：主键的值不能为空。
+- 参照完整性：外键要么空缺，要么引用一个实际存在的值。
+
+- 用户定义的完整性：属性能否为空，是否唯一，取值范围，默认值，属性间满足函数关系？
+
+
+
+# 关系代数
+
+关系代数可分为：
+
+- 集合运算
+- 关系运算
+- 扩冲的关系运算
+
+## 集合运算
+
+**并**
+
+关系 $R$ 与 $S$ 的并由属于 $R$ 或属于 $S$ 的元组组成。记做：
+$$
+R \cup S=\{t | t\in R \or t \in S\}
+$$
+**差**
+
+关系 $R$ 与 $S$ 的差由属于 $R$ 但不属于 $S$ 的元组组成。记做：
+$$
+R - S=\{t | t\in R \or t \notin S\}
+$$
+**交**
+
+关系 $R$ 与 $S$ 的交由既属于 $R$ 又属于 $S$ 的元组组成。记做：
+$$
+R \cap S=\{t | t\in R \and t \in S\}
+$$
+
+**笛卡尔积**
+
+关系 $R$ 与 $S$ 的笛卡尔积由 $R$ 中的元组与 $S$ 中的元组拼接而成。记做：
+$$
+R\times S=\{t_rt_s|(t_r\in R)\and(t_s\in S) \}
+$$
+<img src="/home/xiayulu/Desktop/notes/Computer/DatabaseSystem/set_op.jpg" alt="set_op" style="zoom:25%;" />
+
+
+
+## 关系运算
+
+**选择**（Selection）
+
+选择关系上满足条件的元组，表示如下：
+$$
+\sigma_F(R)=\{t| F(t)=True\}
+$$
+**投影**（Projection）
+
+投影就是选择关系中的某些属性， 由于元组不能重复，需要去重后输出：
+$$
+\Pi_A(R)=\{t[A]\}
+$$
+**连接**（Join）
+
+连接就是在两个关系的笛卡尔积中选取满足一定条件的元组。记做：
+$$
+R \underset{A \theta B}{\bowtie} S= \sigma_{R.A\;\theta\;S.B}(R\times S)
+$$
+
+有两个特殊的连接：
+
+1. 等值连接：即 $\theta$ 为 $=$
+2. 自然连接：要求比较的分量必须是相同的属性组，记为
+
+$$
+R \bowtie S= \Pi_{去重后的属性组}\big(\sigma_{R.A_1=S.A_1\and\dots\and R.A_k= S.A_k}(R\times S)\big)
+$$
+
+
+
+**除**（Division）
+
+设有关系 $R(X,Y)$ 和 $S(Y,Z)$，$\Pi_X(R)$ 属性上的值记为 $x_i$。
+
+先介绍一个概念：像集
+
+$x_i$在关系 $R$ 中对应的像集 $Y_X$ 定义为:
+$$
+Y_X= \Pi_Y(\sigma_{X=x_i}(R))
+$$
+那么 $R \div S$ 定义为$\{x_i\}$，$x_i$ 对应的像集 $Y_X$ 包含 $\Pi_Y(S)$ 
+
+**[例子](https://www.cnblogs.com/yuanqi/p/4589967.html)**
+
+<img src="./RdivS.png" alt="RdivS" style="zoom: 33%;" />
+
+求得 $RS\div S$ 结果为：{ 张三 } 
+
+$RS÷S$ 在这里解决的问题就是：得到选修了所有课程的学生。
+$RS÷S$ 的意义就是：在RS中找出所有包含关系的S元组，然后投影。
 
 
 
