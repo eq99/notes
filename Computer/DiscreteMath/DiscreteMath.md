@@ -326,15 +326,191 @@ $$
 
 
 
+封闭的合式公式、闭式：公式A中无自由出现的个体变项。
+
+换名规则：讲一个指导变项及其在辖域中所有约束出现替换成公式中没有出现的个体变项符号。
+
+解释：给公式中出现的每一个个体常项符号，函数变项符号，谓词变项符号赋值。
+
+一个解释 $I$ 由如下4部分构成：
+
+1. 非空个体域 $D$。
+2. 给论及的每一个个体常项符号指定一个 $D$ 中的元素。
+
+3. 给论及的每一个函数变项符号指定一个 $D$ 中的函数。
+4. 给论及的每一个谓词变项符号指定一个 $D$ 中的谓词。
+
+
+
+永真式，逻辑有效式：公式 $A$ 在任何解释和在该解释下的任何赋值都为真。
+
+矛盾式，永假式：公式 $A$ 在任何解释和在该解释下的任何赋值都为假。
+
+可满足式：公式 $A$ 在存在一个解释和在该解释下的一个赋值都为真。
+
+
+
+代换实例：设 $A_0$ 是含命题变项 $p_0,p_1,\dots,p_n$ 的命题公式，$A_1,A_2,\dots,A_n$ 是n个谓词公式，用 $A_i$ 处处代换 $p_i$ 得到的公式 $A$ 称为 $A_0$ 的代换实例。
+
+## 一阶逻辑等值式与前束范式
+
+
+
+等值式：设 $A,B$  是一阶谓词逻辑中的两个公式，若 $A\leftrightarrow B$ 为逻辑有效式，则称 A 与 B为等值式，记做$A\Leftrightarrow B$
+
+
+
+否定等值式：
+$$
+\neg \forall xA(x) \Leftrightarrow \exist x\neg A(x) \\
+\neg \exist xA(x) \Leftrightarrow \forall x\neg A(x) \\
+$$
+量词辖域收缩与扩张等值式：
+$$
+\forall x(A(x)\or B) \Leftrightarrow \forall xA(x)\or B \\
+\forall x(A(x)\and B) \Leftrightarrow \forall xA(x)\and B \\
+\forall x(A(x)\rightarrow B) \Leftrightarrow \exist xA(x)\rightarrow B \\
+\forall x(B\rightarrow A(x)) \Leftrightarrow B\rightarrow \forall xA(x) \\
+
+\exist x(A(x)\or B) \Leftrightarrow \exist xA(x)\or B \\
+\exist x(A(x)\and B) \Leftrightarrow \exist xA(x)\and B \\
+\exist x(A(x)\rightarrow B) \Leftrightarrow \forall xA(x)\rightarrow B \\
+\exist x(B\rightarrow A(x)) \Leftrightarrow B\rightarrow \exist xA(x) \\
+$$
+
+
+量词等值分配：
+$$
+\forall x(A(x)\and B(x)) \Leftrightarrow \forall xA(x)\and \forall xB(x)\\
+\exist x(A(x)\or B(x)) \Leftrightarrow \exist xA(x)\or \exist xB(x)\\
+$$
+下面两个等值式成立：
+$$
+\forall x \forall y A(x,y) \Leftrightarrow \forall y \forall x A(x,y) \\
+\exist x \exist y A(x,y) \Leftrightarrow \exist y \exist x A(x,y) \\
+$$
+**前束范式**
+
+设谓词公式 $A$  有如下形式：
+$$
+Q_1x_1Q_2x_2\dots Q_nx_nB
+$$
+其中每个 $Q_i$ 为 $\forall$ 或 $\exist$ ，$B$ 为不含量词的为此公式。
+
 
 
 
 
 #  集合论
 
+## 概念
+
+集合
+
+集合的子集
+
+包含
+
+集合相等
+
+真子集
+
+空集
+
+幂集：集合 $A$ 的全体子集构成的集合，记做 $P(A)$：
+$$
+P(A)=\{x|x\subseteq A\}
+$$
+全集
 
 
-# 代数结构
+
+## 集合的运算
+
+集合的交，并，补
+
+绝对补：记做 $ \sim A$，相对全集的补，$A-B=A\cap\sim B$
+
+$A$ 与 $B$对称差：$A\oplus B=(A-B)\cup(B-A)$
+
+
+
+例子见教材P61
+
+
+
+## 集合中元素的个数
+
+
+
+基数：集合中元素的个数，记做 $card A =n$，也可记做 $|A|=n$。
+
+
+
+**容斥原理**
+$$
+|A_1\cup A_2\cup\dots\cup A_m|= \\
+\sum\limits_{i=1}^{m}|A_i|-\sum\limits_{1\le i<j\le m}|A_i \cap A_j|+ \sum\limits_{1\le i<j<k\le m}|A_i \cap A_j\cap A_k|-\dots+(-1)^m |A_1\cap A_2\cap\dots\cap A_m|
+$$
+
+
+欧拉函数
+
+欧拉函数 $\phi(n)$ 是一个重要的函数，在密码学中有重要应用。$\phi(n)$ 表示 $\{1,2,\dots,n-1\}$ 中与 $n$ 互素的元素个数。欧拉函数的计算方法为：
+
+1. 把n质因数分解为 $n=p_1^{m_1}p_2^{m_2}\dots p_k^{m_k}$
+2. 记 $A_i=\{x|(0\le x <n-1) \and (p_i\bmod x=0)\}$
+3. 那么 $|A_i| = \frac{n}{p_i},|A_i\cap A_j|=\frac{n}{p_ip_j},\dots$ 
+4. 则
+
+$$
+\begin{align}
+\phi(n)&=|\overline{A_1}\cap \overline{A_2}\cap\dots\cap\overline{A_k}| \\
+&=\dots\\
+&=n\prod_{i=1}^k(1-\frac{1}{p_i})
+\end{align}
+$$
+
+
+
+# 二元关系和函数
+
+
+
+## 集合的笛卡尔积与二元关系
+
+有序对，序偶：两个元素 $x,y$ 按一定的顺序排列而成的二元组，记做 $<x,y>$ 或 $(x,y)$
+
+当 $x\not= y$ 时，$<x,y>\not =<y,x>$
+
+有序n元组：$<x_1,x_2,\dots x_n>$
+
+笛卡尔集：$A\times B=\{<x,y>|x \in A\and y\in B\}$
+
+如果 $|A|=m,|B|=n$，则 $|A\times B|=mn$
+
+
+
+笛卡尔积的运算性质：
+$$
+A\times\empty =\empty\times B=\empty
+$$
+当 $A\not = B,A\not =\empty,B\not= \empty$ 时：
+$$
+A\times B \not= B\times A
+$$
+分配律：
+$$
+\begin{align}
+A\times(B\cup C)=(A\times B)\cup (A\times C)\\
+(B\cup C)\times A=(B\times A)\cup (C\times A)\\
+A\times(B\cap C)=(A\times B)\cap (A\times C)\\
+(B\cap C)\times A=(B\times A)\cap (C\times A)\\
+\end{align}
+$$
+
+
+
 
 
 
@@ -369,4 +545,36 @@ Cayley定理：过有 $n$ 个标志顶点的树的数目为 $n^{n-2}$.
 由于序列 $b_1,b_2,...,b_{n-2}$ 共有 $n^{n-2}$ 种可能，故树的数目为: $n^{n-2}$。
 
 
+
+## 排列
+
+ 一般排列（无重复 元）
+
+圆周排列
+
+可重复元排列
+
+
+
+
+
+## 组合
+
+一般组合（无重复元）
+
+可重复组合
+
+不相邻组合
+
+
+
+基本问题：r个有区别的球，放入n个无区别盒子，盒子允许为空。
+
+
+
+# 母函数
+
+无序：普通型：$G(x)=\sum_{n=0}^{\infty}a_nx^n$
+
+有序：指数型：$G_e(x)=\sum_{n=0}^{\infty}a_n\frac{x^n}{n!}$
 
