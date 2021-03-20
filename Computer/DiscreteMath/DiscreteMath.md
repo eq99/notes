@@ -483,9 +483,13 @@ $$
 
 当 $x\not= y$ 时，$<x,y>\not =<y,x>$
 
+
+
 有序n元组：$<x_1,x_2,\dots x_n>$
 
-笛卡尔集：$A\times B=\{<x,y>|x \in A\and y\in B\}$
+
+
+笛卡尔积：$A\times B=\{<x,y>|x \in A\and y\in B\}$
 
 如果 $|A|=m,|B|=n$，则 $|A\times B|=mn$
 
@@ -508,6 +512,271 @@ A\times(B\cap C)=(A\times B)\cap (A\times C)\\
 (B\cap C)\times A=(B\times A)\cap (C\times A)\\
 \end{align}
 $$
+
+
+
+二元关系：如果一个集合为空集或他的元素都是二元有序对，记做 $R$，如果 $<x,y>\in R$，记做 $xRy$，否则记做 $x \not R y$。
+
+A 到 B 的二元关系：由 $A\times B$ 的任何子集所定义的二元关系，如果 $A=B$，则称 A上的二元关系。
+
+
+
+三种特殊关系：
+
+- 空关系：“那个集合”为空集
+- 全域关系 $E_A$：$E_A=\{<x,y>|x\in A\and y\in B\}$
+
+- 恒等关系 $I_A$：$I_A=\{<x,x>|x\in A\}$
+
+
+
+还可定义其他一些关系如小于等于关系：
+
+设 A 是实数集 $\mathbb{R}$ 的某个子集，则A上的小于等于关系可定义为：
+$$
+L_A=\{<x,y>|x,y\in A \and x\le y\}
+$$
+
+
+**关系矩阵**
+
+定义在 $A=\{x_1,x_2,\dots,x_n\}$ 上的关系 R可表示为：
+$$
+r_{ij}=
+\begin{cases}
+1\quad x_iRx_j\\
+0\quad x_i\not R x_j
+\end{cases}
+$$
+**关系图**
+
+设图 $G=<V,E>$，满足：$V=A=\{x_1,x_2,\dots,x_n\}$，如果 $x_i R x_j$，那么有向边 $<x_i,x_j>\in E$，那么G就是 R 的关系图。
+
+
+
+## 关系运算
+
+定义域$dom R$：$domR= \{x|\exist y(<x,y>\in R)\}$
+
+值域$ranR$：$ranR= \{y|\exist x(<x,y>\in R)\}$
+
+域$fldR$: $fldR=domR\cup ranR$
+
+可以看出定义域就是第一个元素构成的集合，值域就是第二个元素构成的集合。
+
+
+
+**其他运算**
+
+设 $F,G$ 为任意关系，A为集合：
+
+
+
+$F$ 的逆 $F^{-1}=\{<x,y>|\quad yFx\}$。
+
+:question: $F$ 与 $G$ 的合成 $F\circ G=\{<x,y>|\exist z(xGz\and zFy)\}$，$x$ 通过 $F\circ G$最终变到 $y$，其实定义的是左复合，一般来说 $F\circ G \not =G \circ F $。
+
+$F$ 在 $A$ 上的限制 $F\upharpoonright A=\{<x,y>|xFy\and x\in A)\}$，描述了 F 仅对A中元素的作用。
+
+$A$ 在 $F$ 下的像 $F[A]=ran(F\upharpoonright A)$，描述了A在F作用下所变成的那个新集和。
+
+
+
+运算法则
+$$
+(F^{-1})^{-1}=F\\
+domF^{-1} = ranF,ranF^{-1}=domF\\
+(F\circ G)\circ H=F\circ (G\circ H)\\
+(F\circ G)^{-1}=G^{-1}\circ F^{-1}
+$$
+
+
+并运算与交运算性质
+$$
+F\circ (G\cup H)=(F\circ G)\cup(F\circ H)\\
+F\circ (G\cap H)\subseteq(F\circ G)\cap(F\circ H)\\
+(G\cup H) \circ F=(G\circ F)\cup(H\circ F)\\
+(G\cap H) \circ F \subseteq(G\circ F)\cap(H\circ F)\\
+$$
+关系的幂运算
+
+设 $R$ 为 $A$ 上的关系，$n$ 为自然数，则 $R$ 的 $n$ 次幂定义如下：
+
+1. $R^0=\{<x,x>|x\in A\}$
+2. $R^n=R^{n-1}\circ R$
+
+
+
+幂运算有如下性质：
+$$
+R^m\circ R^n=R^{m+n}\\
+(R^m)^n=R^{mn}
+$$
+
+## 关系的性质
+
+关系有如下5种性质：自反性，反自反性，对称性，反对称性，传递性：
+
+![关系性质](./关系性质.png)
+
+
+
+## 关系的闭包
+
+设R是非空集合A上的关系，人们希望R具有一些有用的性质，例如自反性，对称性，传递性。为此需要在R中添加一些有序对而构成新的关系 $R^{\prime}$具有期望的性质，但又不想 $R^{\prime}$ 变得太大，因此添加的有序对要尽可能的少。满足这些要求的 $R^{\prime}$ 就是R的自反（对称，传递）闭包。
+
+数学语言定义如下：
+
+1. $R^{\prime}$ 是自反（对称，传递）的
+2. $R\subseteq R^{\prime}$
+3. A上包含R自反关系的任何 $R^{\prime\prime}, R^{\prime}\subseteq R^{\prime\prime}$
+
+自反闭包记做 $r(R)$，对称闭包记做 $s(R)$，传递闭包记做 $t(R)$。
+
+
+
+求闭包的方法
+
+1. $r(R)=R\cup R^0$
+2. $s(R)=R\cup R^{-1}$
+3. $t(R)=R\cup R^2\cup R^3 \cup\dots$
+
+
+
+关系矩阵
+$$
+M_r=M+E\\
+M_s=M+M^\mathrm{T}\\
+M_t=M+M^2+M^3+\dots
+$$
+
+
+## 等价关系与偏序关系
+
+等价关系
+:question:设 R 为非空集合A上的关系，如果 R 是自反的，对称的和传递的，那么称 R 为 A上的等价关系，记做$x\sim  y$。
+
+
+
+等价类
+
+设R 是A上的等价关系，对任意的 $x\in A$
+$$
+[x]_R=\{y|y\in A \and xRy\}
+$$
+性质：
+
+设R 是A上的等价关系，对任意的 $x,y\in A$
+
+1. $[x]\not= \varnothing, [x]\subseteq A$
+2. 若 $xRy$，则 $[x]=[y]$
+3. 若 $x\not R y$，则 $[x]\cap [y]\not=\varnothing$
+4. $\bigcup\limits_{x\in A}[x]=A$
+
+
+
+商集：设 R 为非空集合A上的等价关系，以R的不交的等价类为元素的集合称为A在R下的商集，记做 $A/R
+$。
+$$
+A/R=\{[x]_R|x\in A\}
+$$
+划分
+
+设A为非空集合，如果存在一个A的子集族$\pi(\pi\subseteq P(A))$ 满足以下条件：
+
+1. $\varnothing \not\in \pi$
+2. $\pi$ 中任意两个元素不交
+3. $\pi$ 中所有元素的并集等于A
+
+则称 $\pi$ 为A 的一个划分，称 $\pi$ 中的元素为划分块。
+
+
+
+商集是是A的一个划分。集合A上的划分与集合A的等价类是一一对应的。
+
+
+
+偏序
+
+设 $R$ 为非空集合 $A$ 上的关系，如果 $R$ 是自反的，反对称的和传递的，那么称 $R$ 为 $A$ 上的偏序关系，简称偏序，记做$x\preccurlyeq y$，读作 x 小于等于 y。
+
+:bulb: 这里的小于等于并不是指大小关系，而是指它们在偏序中位置的先后。​
+
+常见的偏序关系：恒等，包含，小于等于，整除。
+
+
+
+偏序集：一个集合A与它的偏序关系一起称作偏序集，记做 $<A,R>$
+
+
+
+设 $<A,\preccurlyeq >$ 为偏序集，对于任意的 $x,y\in A$，如果 $x\preccurlyeq y$ 或者 $y\preccurlyeq x$成立，则称x与y是可比的。
+
+如果 $x\prec y $且不存在 $z\in A$ 使得 $x\prec z \prec y$，则称 y 盖住 x。
+
+设 $<A,\preccurlyeq >$ 为偏序集，对于任意的 $x,y\in A$，如果 $x$ 与 $y$ 是可比的，则称 $\preccurlyeq$ 为A上的全序关系，称 $<A,\preccurlyeq>$ 为全序集。全序集也称线序集。
+
+
+
+设 $<A,\preccurlyeq >$ 为偏序集，$B\subseteq A$
+
+1. 若$\exist y\in B$，使得 $\forall x(x\in B\rightarrow y\preccurlyeq x)$，称 $y$ 是 $B$ 的最小元。
+2. 若$\exist y\in B$，使得 $\forall x(x\in B\rightarrow x\preccurlyeq y)$，称 $y$ 是 $B$ 的最大元。
+3. 若$\exist y\in B$，使得 $\neg\exist x(x\in B\and x\prec y)$，称 $y$ 是 $B$ 的极小元。
+4. 若$\exist y\in B$，使得 $\neg\exist x(x\in B\and y\prec x)$，称 $y$ 是 $B$ 的极大元。
+5. 若$\exist y\in A$，使得 $\forall x(x\in B\rightarrow y\preccurlyeq x)$，称 $y$ 是 $B$ 的下界。
+6. 若$\exist y\in A$，使得 $\forall x(x\in B\rightarrow x\preccurlyeq y)$，称 $y$ 是 $B$ 的上界。
+7. 令 $C=\{y|y 为 B的上界\}$，则称 $C$ 的最小元为 $B$ 的上确界。
+8. 令 $C=\{y|y 为 B的下界\}$，则称 $C$ 的最大元为 $B$ 的下确界。
+
+
+
+## 函数的定义与性质
+
+函数是一种特殊的二元关系。
+
+函数：设 $F$ 为二元关系，若对任意的 $x\in domF$ 都存在唯一的 $y \in ranF$ 使得 $xFy$ 成立，则称 $F$ 为函数。
+
+
+
+设 $A,B$ 是集合，如果函数 $f$ 满足：
+
+1. $domf=A$
+2. $ranf\subseteq B$
+
+则称 $f$ 是从 $A$ 到 $B$ 的函数，记做 $f:A\rightarrow B$
+
+
+
+设 $A,B$ 是集合，所有从 $A$ 到 $B$ 的函数构成的集合记做 $B^A$。
+
+
+
+**函数的像**
+
+设 $f:A\rightarrow B,A^{\prime} \subseteq A$，则 $A^{\prime}$ 在$f$ 下的像为：
+$$
+f(A^{\prime})=\{f(x)|x\in A^{\prime}\} =f[A^{\prime}]
+$$
+ 
+
+
+
+:star:设函数 $f:A\rightarrow B$：
+
+**满射**：$ranf=B$
+
+**单射**：对于任何 $x_1,x_2 \in A, x_1\not = x_2$，都有 $f(x_1)\not=f(x_2)$
+
+**双射**：及时满射又是单射。
+
+教材电子书P108
+
+
+
+
+
+
 
 
 
