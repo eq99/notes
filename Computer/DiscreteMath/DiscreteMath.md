@@ -227,6 +227,54 @@ $$
 
 
 
+:star:【例题】
+
+请构造证明序列：$(P\rightarrow Q\or R)\and(Q\rightarrow \neg P)\and(S\rightarrow \neg R) \Rightarrow (P\rightarrow \neg S)$
+
+证明：
+
+1. 先把条件结论列出
+
+$$
+\begin{align}
+H_1&:P\rightarrow Q\or R\\
+H_2&:Q\rightarrow \neg P \\
+H_3&:S\rightarrow \neg R\\
+C&:P\rightarrow \neg S
+\end{align}
+$$
+
+2. 利用附加前提法把结论的一部分变为前提：
+
+$$
+\begin{align}
+H_1&:P\rightarrow Q\or R\\
+H_2&:Q\rightarrow \neg P \\
+H_3&:S\rightarrow \neg R\\
+H_4&:P\\
+C&:\neg S
+\end{align}
+$$
+
+
+
+3. 写出序列
+
+$$
+\begin{align}
+1.&\quad Q\or R & H_4 , H_1+假言 \\
+2.&\quad P\rightarrow \neg Q & H_2+等值代换\\
+3.&\quad \neg Q & H_4,2+ 假言\\
+4.&\quad R & 1,3+析取三段论\\
+5.&\quad R\rightarrow \neg S & H_3+等值代换\\
+6.&\quad \neg S & 4，5+假言
+\end{align}
+$$
+
+
+
+
+
 
 
 # 一阶逻辑
@@ -397,6 +445,35 @@ Q_1x_1Q_2x_2\dots Q_nx_nB
 $$
 其中每个 $Q_i$ 为 $\forall$ 或 $\exist$ ，$B$ 为不含量词的为此公式。
 
+
+
+## 含有量词的推理
+
+方法：找一个存在量词约束的前提，代入一个值（ES），然后把这个值代入含有任意量词的公式（US）。
+
+:star:【例题】
+
+构造证明序列：$\forall x(P(x)\or Q(x)) \Rightarrow \forall x P(x) \or \exist x Q(x) $
+
+证明：
+
+先把结论写成蕴含式，利用附加前提法
+$$
+\begin{align}
+H_1&: \forall x(P(x)\or Q(x))\\
+H_2&:\exist x \neg P(x)\\
+C&:\exist x Q(x)
+\end{align}
+$$
+步骤：
+$$
+\begin{align}
+1.&\quad \neg P(a) & H_2 + ES\\
+2.&\quad P(a)\or Q(a) & H_1+US\\
+3.&\quad Q(a) & 1,2+假言\\
+4.&\quad \exist x Q(x) & 3+ES
+\end{align}
+$$
 
 
 
@@ -1094,3 +1171,72 @@ Cayley定理：过有 $n$ 个标志顶点的树的数目为 $n^{n-2}$.
 
 有序：指数型：$G_e(x)=\sum_{n=0}^{\infty}a_n\frac{x^n}{n!}$
 
+
+
+广义牛顿二项式定理：
+$$
+(1+x)^{\alpha} = \sum \frac{\alpha(\alpha-1)(\alpha-2)\dots(\alpha-k+1)}{k!}x^k
+$$
+
+
+
+
+## Ferrers 图像
+
+Ferrers 图像：一个自上而下的n层格子，$n$ 为第 $i$ 层的格子数。当 $n_i \ge n_{i+1}$ 时，即上层的格子数不小于下层的格子数时，称之为 Ferrers 图像。
+
+性质：
+
+- 每层至少一个格子。
+- 第一行与第一列互换，第二行与第二列互换...所得的图像任然是 Ferrers 图像，并称他们是共轭的。
+
+
+
+自共轭： Ferrers 图像和它的共轭相等。 
+
+例：整数 $n$ 拆分为互不相同的若干个奇数和的拆分数等于把 $n$ 拆分成自共轭的 Ferrers 图像的拆分数相等。
+
+
+
+## 指数型母函数
+
+
+
+问题：
+
+设有 n 个元素，其中 $a_1$ 重复了 $n_1$ 次， 其中 $a_2$ 重复了 $n_2$ 次，$\dots$ ，其中 $a_k$ 重复了 $n_k$ 次， 且 $n_1+n_2\dots+n_k=n$，从中取 $r$ 个，请问有多少中**排列**方法？
+
+
+
+指数型母函数的定义：
+$$
+G_e(x)=a_0+a_1\frac{x}{1!}+\dots+a_n\frac{x^n}{n!}
+$$
+
+
+例：
+
+设有 7 个有区别的球，放入4个有标志的盒子，要求第1，2个盒子含有偶数个球，第3个盒子含有奇数个球，有多少种分配方案？
+
+解：
+
+第1，2盒子：$1+\frac{x^2}{2!}+\frac{x^4}{4!}+\dots=\frac{e^x+e^{-x}}{2}$
+
+第3盒子：$\frac{x^1}{1!}+\frac{x^3}{3!}+\dots=\frac{e^x-e^{-x}}{2}$
+
+第4盒子：$1+\frac{x}{1!}+\frac{x^2}{2!}+\dots=e^x$
+
+$G(x)=(\frac{e^x+e^{-x}}{2})^2(\frac{e^x-e^{-x}}{2})e^x=\frac{e^{4x}+e^{2x}-e^{-2x}-1}{8}$
+
+
+
+## 递推关系
+
+汉诺塔问题的递推式：
+$$
+h(n)=
+\begin{cases}
+2h(h-1)+1, \quad n>1\\
+1, \quad n=1
+\end{cases}
+$$

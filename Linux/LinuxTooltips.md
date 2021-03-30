@@ -61,6 +61,16 @@ $ g++ --version
 
 
 
+## Screen Shot
+
+```sh
+# https://flameshot.org/getting-started/
+$ sudo apt install flameshot
+
+```
+
+
+
 # obs-studio
 
 ```sh
@@ -77,6 +87,10 @@ sudo apt install obs-studio
 # https://www.fossmint.com/best-ubuntu-themes/
 # https://www.gnome-look.org/p/1099856/
 ```
+
+
+
+
 
 
 
