@@ -15,12 +15,12 @@
 | 名称       | 符号              | 举例                  | 含义                     |
 | ---------- | ----------------- | --------------------- | ------------------------ |
 | 否定连接词 | $\neg$            | $\neg p$              | 非 $p$                   |
-| 合取连接词 | $\and$            | $p \and q$            | $p$ 且  $q$，合取式      |
-| 析取连接词 | $\or$             | $p \or q$             | $p$ 或 $q$， 析取式      |
+| 合取连接词 | $\land$           | $p \land q$           | $p$ 且  $q$，合取式      |
+| 析取连接词 | $\lor$             | $p \lor q$            | $p$ 或 $q$， 析取式      |
 | 蕴含连接词 | $\rightarrow$     | $p \rightarrow q$     | 若 $p$ 则 $q$， 蕴含式   |
 | 等价连接词 | $\leftrightarrow$ | $p \leftrightarrow q$ | $p$ 当且仅当 $q$，等价式 |
-| 与非联结词 | $\uparrow$        | $p \uparrow q$        | $\neg (p \and q)$        |
-| 或非联结词 | $\downarrow$      | $p \downarrow q$      | $\neg (p \or q)$         |
+| 与非联结词 | $\uparrow$        | $p \uparrow q$        | $\neg (p \land q)$       |
+| 或非联结词 | $\downarrow$      | $p \downarrow q$      | $\neg (p \lor q)$         |
 
 命题符号化步骤：
 
@@ -35,7 +35,7 @@
 
 ​	$q$：小李拿一个苹果
 
-​	---> $(p \and \neg q) \or (\neg p \and q)$
+​	---> $(p \land \neg q) \lor (\neg p \land q)$
 
 注意这里的或为排斥或。
 
@@ -64,29 +64,29 @@ $n$ 元真值函数：$F:\{0,1\}^n \rightarrow \{0,1\}$
 | 公式                                                         | 说明     |
 | :----------------------------------------------------------- | -------- |
 | $\neg \neg A \Leftrightarrow A$                              | 双重否定 |
-| $ A \or A \Leftrightarrow A$                                 |          |
-| $ A \and A \Leftrightarrow A$                                |          |
-| $ A \or B \Leftrightarrow B \or A$                           |          |
-| $ A \and B \Leftrightarrow B \and A$                         |          |
-| $(A \or B)\or C \Leftrightarrow A \or (B \or C)$             |          |
-| $(A \and B)\and C \Leftrightarrow A \and (B \and C)$         |          |
-| $A \or (B\and C \and D) \Leftrightarrow (A \or B) \and (A \or C) \and (A \or D)$ |          |
-| $A \and (B\or C) \Leftrightarrow (A \and B) \or (A \and C)$  |          |
-| $\neg (A \or B) \Leftrightarrow \neg A \and \neg B$          |          |
-| $\neg (A \and B) \Leftrightarrow \neg A \or \neg B$          |          |
-| $A \or (A\and C) \Leftrightarrow A $                         |          |
-| $A \and (A\or C) \Leftrightarrow A $                         |          |
-| $A \or 1 \Leftrightarrow 1$                                  |          |
-| $A \and 0 \Leftrightarrow 0$                                 |          |
-| $A \or 0 \Leftrightarrow A$                                  |          |
-| $A \and 1 \Leftrightarrow A$                                 |          |
-| $A \or \neg A \Leftrightarrow 1$                             |          |
-| $A \and \neg A \Leftrightarrow 0$                            |          |
-| $A \rightarrow B \Leftrightarrow \neg A \or B$               |          |
-| $A \leftrightarrow B \Leftrightarrow (A \rightarrow B) \and (B \rightarrow A)$ |          |
+| $ A \lor A \Leftrightarrow A$                                 |          |
+| $ A \land A \Leftrightarrow A$                                |          |
+| $ A \lor B \Leftrightarrow B \lor A$                           |          |
+| $ A \land B \Leftrightarrow B \land A$                         |          |
+| $(A \lor B)\lor C \Leftrightarrow A \lor (B \lor C)$             |          |
+| $(A \land B)\land C \Leftrightarrow A \land (B \land C)$         |          |
+| $A \lor (B\land C \land D) \Leftrightarrow (A \lor B) \land (A \lor C) \land (A \lor D)$ |          |
+| $A \land (B\lor C) \Leftrightarrow (A \land B) \lor (A \land C)$  |          |
+| $\neg (A \lor B) \Leftrightarrow \neg A \land \neg B$          |          |
+| $\neg (A \land B) \Leftrightarrow \neg A \lor \neg B$          |          |
+| $A \lor (A\land C) \Leftrightarrow A $                         |          |
+| $A \land (A\lor C) \Leftrightarrow A $                         |          |
+| $A \lor 1 \Leftrightarrow 1$                                  |          |
+| $A \land 0 \Leftrightarrow 0$                                 |          |
+| $A \lor 0 \Leftrightarrow A$                                  |          |
+| $A \land 1 \Leftrightarrow A$                                 |          |
+| $A \lor \neg A \Leftrightarrow 1$                             |          |
+| $A \land \neg A \Leftrightarrow 0$                            |          |
+| $A \rightarrow B \Leftrightarrow \neg A \lor B$               |          |
+| $A \leftrightarrow B \Leftrightarrow (A \rightarrow B) \land (B \rightarrow A)$ |          |
 | $A \rightarrow B \Leftrightarrow \neg B \rightarrow \neg A$  |          |
 | $A \leftrightarrow B \Leftrightarrow \neg A \leftrightarrow \neg B$ |          |
-| $(A \rightarrow B)\and(A \rightarrow \neg B) \Leftrightarrow \neg A$ |          |
+| $(A \rightarrow B)\land(A \rightarrow \neg B) \Leftrightarrow \neg A$ |          |
 
 等值置换：若 $A \Leftrightarrow B$ ，则 $\varPhi(A) \Leftrightarrow \varPhi(B)$
 
@@ -140,7 +140,7 @@ $n$ 元真值函数：$F:\{0,1\}^n \rightarrow \{0,1\}$
 2. 若$A^{\prime}$ 的某简单合取式不含某个命题变项 $p$ 或 $\neg p$ , 则:
 
 $$
-B\Leftrightarrow B\and 1 \Leftrightarrow B\and (p \or \neg p) \Leftrightarrow (B\and p)\or( B \and \neg p)
+B\Leftrightarrow B\land 1 \Leftrightarrow B\land (p \lor \neg p) \Leftrightarrow (B\land p)\lor( B \land \neg p)
 $$
 
 3. 把变成极小项的简单合取式用写成 $m_i$ 的形式。
@@ -158,7 +158,7 @@ $$
 
 - 永假式的主析取范式与主合取范式是什么？
 
-- $p \and q$ 的主析取范式与主合取范式是什么？
+- $p \land q$ 的主析取范式与主合取范式是什么？
 
 
 
@@ -166,13 +166,13 @@ $$
 
 全功能集：设 $S$ 是一个联结词的集合，如果任一真值函数都可用仅含 $S$ 中的联结词的命题公式表示，则称 $S$ 为全功能集。
 
-:star:**定理**：$\{\neg,\and, \or \}$， $\{\neg, \and\}$，$\{\neg, \or\}$，$\{\neg, \rightarrow\}$ ，$\{\uparrow\}$，$\{\downarrow\}$ 都是全功能集。
+:star:**定理**：$\{\neg,\land, \lor \}$， $\{\neg, \land\}$，$\{\neg, \lor\}$，$\{\neg, \rightarrow\}$ ，$\{\uparrow\}$，$\{\downarrow\}$ 都是全功能集。
 
 证明方法：
 
 由于任何公式可以表示成主析取范式，第一个成立。
 
-由于 $p\or q \Leftrightarrow \neg \neg (p \or q) \Leftrightarrow \neg (\neg p \and\neg q )$，可见 $\or$ 可以由 $\neg, \and$ 替换。
+由于 $p\lor q \Leftrightarrow \neg \neg (p \lor q) \Leftrightarrow \neg (\neg p \land\neg q )$，可见 $\lor$ 可以由 $\neg, \land$ 替换。
 
 其实任何包含全功能集的联结词集合式全功能集。
 
@@ -186,7 +186,7 @@ $$
 
 ## 推理
 
-若 $(A_1 \and A_2\and\dots\and A_n ) \rightarrow B$ 为重言式，则称  $A_1 \and A_2\and\dots\and A_n$ 推出结论 $B$ 的推理正确，$B$ 称为 $A_1 \and A_2\and\dots\and A_n$ 的有效结论或逻辑结论。
+若 $(A_1 \land A_2\land\dots\land A_n ) \rightarrow B$ 为重言式，则称  $A_1 \land A_2\land\dots\land A_n$ 推出结论 $B$ 的推理正确，$B$ 称为 $A_1 \land A_2\land\dots\land A_n$ 的有效结论或逻辑结论。
 
 
 
@@ -198,38 +198,38 @@ $$
 
 | 定律                                                         | 描述       |
 | ------------------------------------------------------------ | ---------- |
-| $A \Rightarrow (A\or B)$                                     | 附加       |
-| $(A\and B) \Rightarrow A$                                    | 化简       |
-| $(A\rightarrow B) \and A \Rightarrow B$                      | 假言推理   |
-| $(A\rightarrow B) \and \neg B \Rightarrow \neg A$            | 拒取式     |
-| $(A\or B) \and \neg A \Rightarrow B$                         | 析取三段论 |
-| $(A\rightarrow B) \and (B\rightarrow C)\Rightarrow (A\rightarrow C)$ | 假言三段论 |
-| $(A\leftrightarrow B) \and (A\leftrightarrow C)\Rightarrow (A\leftrightarrow C)$ | 等价三段论 |
-| $(A\rightarrow B) \and (C\rightarrow D) \and (A \or C)\Rightarrow (B\or D)$ | 构造性两难 |
+| $A \Rightarrow (A\lor B)$                                     | 附加       |
+| $(A\land B) \Rightarrow A$                                    | 化简       |
+| $(A\rightarrow B) \land A \Rightarrow B$                      | 假言推理   |
+| $(A\rightarrow B) \land \neg B \Rightarrow \neg A$            | 拒取式     |
+| $(A\lor B) \land \neg A \Rightarrow B$                         | 析取三段论 |
+| $(A\rightarrow B) \land (B\rightarrow C)\Rightarrow (A\rightarrow C)$ | 假言三段论 |
+| $(A\leftrightarrow B) \land (A\leftrightarrow C)\Rightarrow (A\leftrightarrow C)$ | 等价三段论 |
+| $(A\rightarrow B) \land (C\rightarrow D) \land (A \lor C)\Rightarrow (B\lor D)$ | 构造性两难 |
 
 构造证明两种技巧：
 
 1. 附加前提证明法，把结论变成前提：
 
 $$
-(A_1\and A_2\and \dots\and A_n)\rightarrow (A\rightarrow B) \Leftrightarrow (A_1\and A_2\and \dots\and A_n \and A)\rightarrow B
+(A_1\land A_2\land \dots\land A_n)\rightarrow (A\rightarrow B) \Leftrightarrow (A_1\land A_2\land \dots\land A_n \land A)\rightarrow B
 $$
 
-其实：$\neg A_n \or (\neg A \or B)\Leftrightarrow \neg A_n \or \neg A \or B$
+其实：$\neg A_n \lor (\neg A \lor B)\Leftrightarrow \neg A_n \lor \neg A \lor B$
 
 2. 归谬法：
 
 $$
-(A_1\and A_2\and \dots\and A_n \and A)\rightarrow (B) \Leftrightarrow \neg (A_1\and A_2\and \dots\and A_n \and A \and \neg B)
+(A_1\land A_2\land \dots\land A_n \land A)\rightarrow (B) \Leftrightarrow \neg (A_1\land A_2\land \dots\land A_n \land A \land \neg B)
 $$
 
-只要 $A_1\and A_2\and \dots\and A_n \and A \and \neg B$ 是矛盾式，就能说明推理正确。
+只要 $A_1\land A_2\land \dots\land A_n \land A \land \neg B$ 是矛盾式，就能说明推理正确。
 
 
 
 :star:【例题】
 
-请构造证明序列：$(P\rightarrow Q\or R)\and(Q\rightarrow \neg P)\and(S\rightarrow \neg R) \Rightarrow (P\rightarrow \neg S)$
+请构造证明序列：$(P\rightarrow Q\lor R)\land(Q\rightarrow \neg P)\land(S\rightarrow \neg R) \Rightarrow (P\rightarrow \neg S)$
 
 证明：
 
@@ -237,7 +237,7 @@ $$
 
 $$
 \begin{align}
-H_1&:P\rightarrow Q\or R\\
+H_1&:P\rightarrow Q\lor R\\
 H_2&:Q\rightarrow \neg P \\
 H_3&:S\rightarrow \neg R\\
 C&:P\rightarrow \neg S
@@ -248,7 +248,7 @@ $$
 
 $$
 \begin{align}
-H_1&:P\rightarrow Q\or R\\
+H_1&:P\rightarrow Q\lor R\\
 H_2&:Q\rightarrow \neg P \\
 H_3&:S\rightarrow \neg R\\
 H_4&:P\\
@@ -262,7 +262,7 @@ $$
 
 $$
 \begin{align}
-1.&\quad Q\or R & H_4 , H_1+假言 \\
+1.&\quad Q\lor R & H_4 , H_1+假言 \\
 2.&\quad P\rightarrow \neg Q & H_2+等值代换\\
 3.&\quad \neg Q & H_4,2+ 假言\\
 4.&\quad R & 1,3+析取三段论\\
@@ -317,8 +317,8 @@ $L(x,y)$： 表示个体变项 $x,y$ 具有关系 $L$ 。
 
 设个体域为有限集 $D={a_1,a_2,\dots,a_n}$，则
 $$
-\forall xA(x) \Leftrightarrow A(a_1)\and A(a_2)\and\dots\and A(a_n)\\
-\exist xA(x) \Leftrightarrow A(a_1)\or A(a_2)\or\dots\or A(a_n)
+\forall xA(x) \Leftrightarrow A(a_1)\land A(a_2)\land\dots\land A(a_n)\\
+\exist xA(x) \Leftrightarrow A(a_1)\lor A(a_2)\lor\dots\lor A(a_n)
 $$
 :warning: 量词顺序不能随便颠倒。
 
@@ -337,7 +337,7 @@ $$
 - 函数符号：$f,g,h,\dots,f_i,g_i,h_i,\dots$
 - 谓词符号：$F,G,H,\dots,F_i,G_i,H_i\dots$
 - 量词符号：$\forall,\exist$
-- 联结词符：$\neg,\and,\or,\rightarrow,\leftrightarrow$
+- 联结词符：$\neg,\land,\lor,\rightarrow,\leftrightarrow$
 - 括号和逗号：$(),$
 
 
@@ -362,7 +362,7 @@ $$
 
 1. 原子公式是合式公式
 2. 若 $A$ 是合式公式，$\neg A$ 也是合式公式。
-3. 若 $A,B$ 是合式公式， 则 $A\and B,A\or B, A\rightarrow B, A\leftrightarrow B$也是合式公式。
+3. 若 $A,B$ 是合式公式， 则 $A\land B,A\lor B, A\rightarrow B, A\leftrightarrow B$也是合式公式。
 4. 若 $A$ 是合式公式，则 $\forall xA, \exist x A$ 也是合式公式。
 5. 有限次利用以上规则构成的符号串才是合式公式。
 
@@ -415,13 +415,13 @@ $$
 $$
 量词辖域收缩与扩张等值式：
 $$
-\forall x(A(x)\or B) \Leftrightarrow \forall xA(x)\or B \\
-\forall x(A(x)\and B) \Leftrightarrow \forall xA(x)\and B \\
+\forall x(A(x)\lor B) \Leftrightarrow \forall xA(x)\lor B \\
+\forall x(A(x)\land B) \Leftrightarrow \forall xA(x)\land B \\
 \forall x(A(x)\rightarrow B) \Leftrightarrow \exist xA(x)\rightarrow B \\
 \forall x(B\rightarrow A(x)) \Leftrightarrow B\rightarrow \forall xA(x) \\
 
-\exist x(A(x)\or B) \Leftrightarrow \exist xA(x)\or B \\
-\exist x(A(x)\and B) \Leftrightarrow \exist xA(x)\and B \\
+\exist x(A(x)\lor B) \Leftrightarrow \exist xA(x)\lor B \\
+\exist x(A(x)\land B) \Leftrightarrow \exist xA(x)\land B \\
 \exist x(A(x)\rightarrow B) \Leftrightarrow \forall xA(x)\rightarrow B \\
 \exist x(B\rightarrow A(x)) \Leftrightarrow B\rightarrow \exist xA(x) \\
 $$
@@ -429,8 +429,8 @@ $$
 
 量词等值分配：
 $$
-\forall x(A(x)\and B(x)) \Leftrightarrow \forall xA(x)\and \forall xB(x)\\
-\exist x(A(x)\or B(x)) \Leftrightarrow \exist xA(x)\or \exist xB(x)\\
+\forall x(A(x)\land B(x)) \Leftrightarrow \forall xA(x)\land \forall xB(x)\\
+\exist x(A(x)\lor B(x)) \Leftrightarrow \exist xA(x)\lor \exist xB(x)\\
 $$
 下面两个等值式成立：
 $$
@@ -453,14 +453,14 @@ $$
 
 :star:【例题】
 
-构造证明序列：$\forall x(P(x)\or Q(x)) \Rightarrow \forall x P(x) \or \exist x Q(x) $
+构造证明序列：$\forall x(P(x)\lor Q(x)) \Rightarrow \forall x P(x) \lor \exist x Q(x) $
 
 证明：
 
 先把结论写成蕴含式，利用附加前提法
 $$
 \begin{align}
-H_1&: \forall x(P(x)\or Q(x))\\
+H_1&: \forall x(P(x)\lor Q(x))\\
 H_2&:\exist x \neg P(x)\\
 C&:\exist x Q(x)
 \end{align}
@@ -469,7 +469,7 @@ $$
 $$
 \begin{align}
 1.&\quad \neg P(a) & H_2 + ES\\
-2.&\quad P(a)\or Q(a) & H_1+US\\
+2.&\quad P(a)\lor Q(a) & H_1+US\\
 3.&\quad Q(a) & 1,2+假言\\
 4.&\quad \exist x Q(x) & 3+ES
 \end{align}
@@ -536,7 +536,7 @@ $$
 欧拉函数 $\phi(n)$ 是一个重要的函数，在密码学中有重要应用。$\phi(n)$ 表示 $\{1,2,\dots,n-1\}$ 中与 $n$ 互素的元素个数。欧拉函数的计算方法为：
 
 1. 把n质因数分解为 $n=p_1^{m_1}p_2^{m_2}\dots p_k^{m_k}$
-2. 记 $A_i=\{x|(0\le x <n-1) \and (p_i\bmod x=0)\}$
+2. 记 $A_i=\{x|(0\le x <n-1) \land (p_i\bmod x=0)\}$
 3. 那么 $|A_i| = \frac{n}{p_i},|A_i\cap A_j|=\frac{n}{p_ip_j},\dots$ 
 4. 则
 
@@ -566,7 +566,7 @@ $$
 
 
 
-笛卡尔积：$A\times B=\{<x,y>|x \in A\and y\in B\}$
+笛卡尔积：$A\times B=\{<x,y>|x \in A\land y\in B\}$
 
 如果 $|A|=m,|B|=n$，则 $|A\times B|=mn$
 
@@ -601,7 +601,7 @@ A 到 B 的二元关系：由 $A\times B$ 的任何子集所定义的二元关�
 三种特殊关系：
 
 - 空关系：“那个集合”为空集
-- 全域关系 $E_A$：$E_A=\{<x,y>|x\in A\and y\in B\}$
+- 全域关系 $E_A$：$E_A=\{<x,y>|x\in A\land y\in B\}$
 
 - 恒等关系 $I_A$：$I_A=\{<x,x>|x\in A\}$
 
@@ -611,7 +611,7 @@ A 到 B 的二元关系：由 $A\times B$ 的任何子集所定义的二元关�
 
 设 A 是实数集 $\mathbb{R}$ 的某个子集，则A上的小于等于关系可定义为：
 $$
-L_A=\{<x,y>|x,y\in A \and x\le y\}
+L_A=\{<x,y>|x,y\in A \land x\le y\}
 $$
 
 
@@ -651,9 +651,9 @@ $$
 
 $F$ 的逆 $F^{-1}=\{<x,y>|\quad yFx\}$。
 
-:question: $F$ 与 $G$ 的合成 $F\circ G=\{<x,y>|\exist z(xGz\and zFy)\}$，$x$ 通过 $F\circ G$最终变到 $y$，其实定义的是左复合，一般来说 $F\circ G \not =G \circ F $。
+:question: $F$ 与 $G$ 的合成 $F\circ G=\{<x,y>|\exist z(xGz\land zFy)\}$，$x$ 通过 $F\circ G$最终变到 $y$，其实定义的是左复合，一般来说 $F\circ G \not =G \circ F $。
 
-$F$ 在 $A$ 上的限制 $F\upharpoonright A=\{<x,y>|xFy\and x\in A)\}$，描述了 F 仅对A中元素的作用。
+$F$ 在 $A$ 上的限制 $F\upharpoonright A=\{<x,y>|xFy\land x\in A)\}$，描述了 F 仅对A中元素的作用。
 
 $A$ 在 $F$ 下的像 $F[A]=ran(F\upharpoonright A)$，描述了A在F作用下所变成的那个新集和。
 
@@ -739,7 +739,7 @@ $$
 
 设R 是A上的等价关系，对任意的 $x\in A$
 $$
-[x]_R=\{y|y\in A \and xRy\}
+[x]_R=\{y|y\in A \land xRy\}
 $$
 性质：
 
@@ -799,8 +799,8 @@ $$
 
 1. 若$\exist y\in B$，使得 $\forall x(x\in B\rightarrow y\preccurlyeq x)$，称 $y$ 是 $B$ 的最小元。
 2. 若$\exist y\in B$，使得 $\forall x(x\in B\rightarrow x\preccurlyeq y)$，称 $y$ 是 $B$ 的最大元。
-3. 若$\exist y\in B$，使得 $\neg\exist x(x\in B\and x\prec y)$，称 $y$ 是 $B$ 的极小元。
-4. 若$\exist y\in B$，使得 $\neg\exist x(x\in B\and y\prec x)$，称 $y$ 是 $B$ 的极大元。
+3. 若$\exist y\in B$，使得 $\neg\exist x(x\in B\land x\prec y)$，称 $y$ 是 $B$ 的极小元。
+4. 若$\exist y\in B$，使得 $\neg\exist x(x\in B\land y\prec x)$，称 $y$ 是 $B$ 的极大元。
 5. 若$\exist y\in A$，使得 $\forall x(x\in B\rightarrow y\preccurlyeq x)$，称 $y$ 是 $B$ 的下界。
 6. 若$\exist y\in A$，使得 $\forall x(x\in B\rightarrow x\preccurlyeq y)$，称 $y$ 是 $B$ 的上界。
 7. 令 $C=\{y|y 为 B的上界\}$，则称 $C$ 的最小元为 $B$ 的上确界。
@@ -863,7 +863,7 @@ $$
 
 设 $F,G$ 为函数，则 $F\circ G$ 也是函数，且满足：
 
-1. $dom(F\circ G)=\{x|x\in domG \and G(x)\in domF \}$
+1. $dom(F\circ G)=\{x|x\in domG \land G(x)\in domF \}$
 
 2. 对于任意 $x\in dom(F\circ G)$ 有 $F\circ G = F(G(x))$
 
@@ -894,7 +894,7 @@ $$
 
 多重集：允许元素重复的集合。
 
-无序集：设 $A,B$ 是两个集合，称 $\{\{a,b\}|a\in A\and b\in B\}$ 为无序集，记做 $A\And B$，也把 $\{a,b\}$ 记做 $(a,b)$。
+无序集：设 $A,B$ 是两个集合，称 $\{\{a,b\}|a\in A\land b\in B\}$ 为无序集，记做 $A\And B$，也把 $\{a,b\}$ 记做 $(a,b)$。
 
 :memo:对于无序集 $(a,b)=(b,a)$
 
@@ -958,7 +958,7 @@ $ G^{\prime}$ 是 $G$ 的子图：$G^{\prime}=<V^{\prime},E^{\prime}>$ 与 $G=<V
 
 补图
 
-$G$ 是无向简单图，G 的补图 $\overline{G}=<V,\overline{E}>$ ，其中 $\overline{E}=\{(u,v)|u,v\in V\and (u,v)\not \in E\}$
+$G$ 是无向简单图，G 的补图 $\overline{G}=<V,\overline{E}>$ ，其中 $\overline{E}=\{(u,v)|u,v\in V\land (u,v)\not \in E\}$
 
 
 

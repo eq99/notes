@@ -468,3 +468,26 @@ $F=A\overline{B}C\overline{D}+\overline{A}B\overline{C}+\overline{C}D+\overline{
 
 
 
+# 常用组合逻辑电路
+
+## 加法器
+
+$$
+F_n=A_n\oplus B_n\oplus C_{n-1}\\
+C_n=(A_n+B_n)C_{n-1}+A_nB_n
+$$
+
+
+
+两个概念：
+
+进位传播函数：$P_i=A_i+B_1$，
+
+进位生成函数：$G_i=A_iB_i$。
+
+
+
+【例题】
+
+设计一个4位全加器，使之能完成 A+B,A-B
+
