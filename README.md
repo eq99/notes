@@ -6,11 +6,11 @@
 
 # 计算机基础
 
-[离散数学](./Computer/DiscreteMath/DescreteMath.md)
+[离散数学](./Computer/DiscreteMath/DiscreteMath.md)
 
-[概率论](./Computer/Statistic/Statistic and Probability.md)
+[概率论](./Computer/Statistic/Statistic.md)
 
-[数字逻辑](./Compyter/DigitalLogic/DigtalLogic.md)
+[数字逻辑](./Computer/DigitalLogic/DigitalLogic.md)
 
 [算法](./Computer/Algorithm/Algorithm.md)
 
