@@ -2,5 +2,5 @@
 
 # 计算机基础
 
-[算法](./computer/Algorithm/Algorithm.md)
+[算法](./Computer/Algorithm/Algorithm.md)
 
