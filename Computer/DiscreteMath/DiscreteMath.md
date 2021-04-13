@@ -1165,6 +1165,23 @@ Cayley定理：过有 $n$ 个标志顶点的树的数目为 $n^{n-2}$.
 
 
 
+## 组合恒等式
+
+$$
+\begin{align}
+C(n,r)&=C(n-1,r)+C(n-1,r-1)\\
+C(n,l)C(l,r)&=C(n,r)C(n-r,l-r)\\
+C(m+n,r)&=C(m,0)C(n,r)+C(m,1)C(n,r-1)+\dots+C(m,r)C(n,0)\\
+C(m+n,m)&=C(m,0)C(n,m)+C(m,1)C(n,m-1)+\dots+C(m,m)C(n,0)\\
+&=C(m,m)C(n,m)+C(m,m-1)C(n,m-1)+\dots+C(m,0)C(n,0)\\
+C(n+1,r+1)&=C(n,r)+C(n-1,r-1)+\dots+C(r,r)
+\end{align}
+$$
+
+
+
+
+
 # 母函数
 
 无序：普通型：$G(x)=\sum_{n=0}^{\infty}a_nx^n$
@@ -1232,6 +1249,24 @@ $G(x)=(\frac{e^x+e^{-x}}{2})^2(\frac{e^x-e^{-x}}{2})e^x=\frac{e^{4x}+e^{2x}-e^{-
 
 ## 递推关系
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 汉诺塔问题的递推式：
 $$
 h(n)=
@@ -1240,3 +1275,4 @@ h(n)=
 1, \quad n=1
 \end{cases}
 $$
+

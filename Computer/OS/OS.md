@@ -183,29 +183,214 @@ P1:{
 
 
 
+硬件方法：
+
+1. 禁止中断
+2. 硬件指令方法
 
 
-问题：设有 $M$ 个互斥的资源，有N 个同步的进程，每个进程每次占有 k 个资源，求信号量的取值范围？
+
+【锁机制】
+
+```c
+lock(w){
+    while(w == 1){
+        w=1;
+    }
+}
+
+unlock(w){
+    w = 0;
+}
 
 
-
-
+// P1,P2
+//...
+lock(w);
+//临界区;
+unlock(w);
+//...
+```
 
 
 
 ## 信号量
 
+问题：设有 $M$ 个互斥的资源，有N 个同步的进程，每个进程每次占有 k 个资源，求信号量的取值范围？
+
+信号号量s由两个成员 `count,queue` 构成，`count` 表示系统中某类资源的使用情况，初始值为一个非负数，当它大于0时，表示当前系统中可用的资源数目，当它的值小于0时，表示因请求该资源而阻塞的进程数量。`queue`用于记录阻塞的进程，初值为空队列。
+
+信号量的值仅能P操作（也称wait 操作）和V操作（也称signal操作）修改。
+
+
+
+```c
+struct Semaphore{
+    int count;
+    Queue queue;
+}
+
+wait(Semaphore s){
+    s.count--;
+    if(s.count<0){
+        //阻塞该进程
+        //将其加入s.queue
+    }
+}
+
+signal(Semaphore s){
+    s.count++;
+    if(s.count<=0){
+        //从s.queue取出一个进程
+        //将其加入就绪队列
+    }
+}
+```
+
+
+
+```c
+
+Semaphore s = Semaphore(1);
+
+cobegin
+    P1();
+	P2();
+coend
+    
+P1(){
+    //...
+    P(s);
+    //临界区
+    V(s);
+    //...
+}
+P2(){
+    //...
+    P(s);
+    //临界区
+    V(s);
+    //...
+}
+```
+
+
+
+ 经典进程同步问题
+
+【生产者-消费者问题】
+
+生产者与消费者进程共享一个长度为n的有界缓冲区。缓冲区满时，生产者被阻塞；缓冲区空时，消费者被阻塞；生产者与消费者只能有一个操作缓冲区。实现的伪代码如下：
+
+```c
+semaphore full = 0;
+semaphore empty = n;
+semaphore mutex = 1;
+
+producer(){
+    while(1){
+        produce();
+        P(empty);
+        P(mutex);
+        //把数据放到缓冲区
+        V(mutex);
+        V(full);
+    }
+}
+
+customer(){
+    while(1){
+        produce();
+        P(full);
+        P(mutex);
+        //从缓冲区取出数据
+        V(mutex);
+        V(empty);
+    }
+}
+```
+
+
+
+【读者写者问题】
+
+如果进程只对共享资源进行读操作，那么没有问题，但如果有进程对共享资源进行写操作，就会破坏数据的完整性。为了同步读写操作，需要对资源加锁，伪代码如下：
+
+```c
+semaphore rmutex =1;
+semaphore wmutex =1;
+int count = 0;
+
+reader(){
+    while(true){
+        P(rmutex);
+        if (count==0)P(wmutex);
+        count++;
+        V(rmutex);
+        // read()
+        P(rmutex);
+        count--;
+        if (count==0)V(wmutex);
+        V(rmutex);
+    }
+}
+
+writer(){
+    while(true){
+        P(wmutex);
+		// write()
+        V(wmutex);
+    }
+}
+
+main(){
+    //cobegin
+    reader()
+    writer()
+    //coend
+}
+```
+
 
 
 ## 管程
+
+管程定义了一个数据结构和能为并发进程所执行的的一组操作，这组操作能同步进程和操作管程中的数据。
+
+
 
 
 
 ## 进程通信
 
+信号与管道是Unix系统最古老的通信机制，为了增强进程间通信能力，Unix System V 提出了共享内存，信号量，消息队列的通信机制。在计算算网络中，使用套接字实现不同主机进程间通信。
+
+
+
+1. 管道
+2. FIFO
+3. 消息队列
+4. 信号量
+5. 共享内存
+6. 套接字
+
+
+
+
+
+
+
+
+
 
 
 # 调度与死锁
+
+
+
+
+
+
 
 # 存储管理
 
