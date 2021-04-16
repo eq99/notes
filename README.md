@@ -28,4 +28,4 @@
 
 # 杂碎
 
-[门罗币挖矿体验一下](./Menero/Monero.md)
+[门罗币挖矿体验一下](./Monero/Monero.md)
