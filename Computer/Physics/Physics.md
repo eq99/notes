@@ -124,6 +124,16 @@ $\tan\varphi=\frac{A_1\sin\varphi_1+A_2\sin\varphi_2}{A_1\cos\varphi_1+A_2\cos\v
 
 
 
+波动方程：
+
+$y(x,t)=A\cos(2\pi(\frac{t}{T}-\frac{x}{\lambda})+\varphi)$
+
+$y(x,t)=A\cos(\omega(t-\frac{x}{u})+\varphi)$
+
+
+
+
+
 # 刚体运动
 
 转动惯量：$I=\sum m_ir_i^2 = \int r^2dm$
