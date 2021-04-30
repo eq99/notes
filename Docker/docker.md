@@ -19,6 +19,55 @@ $ newgrp docker
 ```
 
 
+# Postgres
+
+```yaml
+version: '3.5'
+
+services:
+  postgres:
+    image: postgres:13
+    container_name: postgres
+    restart: unless-stopped
+    environment:
+      POSTGRES_PASSWORD: 123456  # <------ your pass
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    ports:
+      - 5432:5432
+    networks:
+      - postgres
+
+  pgadmin:
+    image: dpage/pgadmin4
+    container_name: pgadmin
+    restart: unless-stopped
+    links:
+      - postgres
+    depends_on:
+      - postgres
+    environment:
+      PGADMIN_DEFAULT_EMAIL: 666@163.com # <-----your email
+      PGADMIN_DEFAULT_PASSWORD: 123456 #<----your pgadmin login passwd
+      PGADMIN_LISTEN_PORT: 5431
+    ports:
+      - 5431:5431
+    volumes:
+      - pgadmin:/root/.pgadmin
+    networks:
+      - postgres
+
+networks:
+  postgres:
+    driver: bridge
+
+volumes:
+  pgdata:
+  pgadmin:
+
+```
+
+
 
 # docker-compose.yaml Example
 
