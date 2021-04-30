@@ -356,6 +356,150 @@ $RS÷S$ 的意义就是：在RS中找出所有包含关系的S元组，然后投
 
 # SQL语言
 
+- SQL 语言是什么？如何理解记忆 SQL 语言？
+- SQL 建模语言?
+- SQL 数据操作语言？
+- SQL 控制语言？
+
+
+
+【基本概念】
+
+SQL 语言是数据库语言，和数据库打交道就需要用数据库语言。数据库语言不止一种，因为不同的数据库说的语言不一样。但并不是完全不一样，这与人类语言类似，有外语，有方言。
+
+数据库有许多种，最常见的是关系数据库，它们都用 SQL 语言，还有许多 NoSQL 数据库，例如 MongoDB，Redis， Neo4j等，他么的语言都不一样。
+
+
+
+【数据库语言的理解】
+
+数据库管理系统一般有如下需求：
+
+- 数据库层面，包括数据库的建立，修改，删除，表模式的定义，修改，约束。
+- 数据层面：表内数据的增删改查，表间连接，聚合函数等。
+- 管理层面：数据库层面的控制，例如角色与权限管理，登录，数据库备份等。
+
+SQL 语言由相应的子语言组成：
+
+- 数据库建模语言（DDL）：定义数据库对象，表模式。
+- 数据操纵语言（DML）：数据的增删改查（CRUD）。
+- 数据控制语言（DCL）：访问控制，授权等。
+
+
+
+【数据库建模语言】
+
+
+
+表模式语言
+
+```sql
+CREATE TABLE user
+(user_id INT NOTNULL,
+ name VARCHAR(8) NOTNULL,
+ age  INT,
+ sex  BOOLEAN,	
+ PRIMARY KEY(user_id)
+)
+
+CREATE TABLE course
+(course_id INT NOTNULL,
+ name VARCHAR(8) NOTNULL,
+ price  INT,
+ PRIMARY KEY(course_id)
+)
+
+CREATE TABLE grade
+(grade_id INT NOTNULL,
+ user_id INT,
+ course_id INT,
+ score  INT,
+ PRIMARY KEY(id),
+ FOREIGN KEY(user_id) REFERENCE user ON DELETE CASCADE,
+ FOREIGN KEY(course_id) REFERENCE course ON DELETE CASCADE,
+)
+
+ALTER TABLE user
+ADD (email VARCHAR(32));
+
+ALTER TABLE user
+MODIFY (email VARCHAR(64));
+
+ALTER TABLE user
+DROP email [CASCADE|RESTRICT];
+
+CREATE [UNIQUE | CLUSTER] INDEX nameindex ON user(name);
+DROP INDEX nameinde
+
+DROP TABLE user [CASCADE|RESTRICT];
+```
+
+
+
+【数据操纵】
+
+```sql
+SELECT [ALL|DISDINCT] name, age
+FROM user
+WHERE age > 35 AND age <40
+GROUP BY sex [HAVING sex=true]
+ORDERBY name [ASC|DESC]
+
+
+
+SELECT COUNT(*), MAX(grade), MIN(grade)
+FROM grade
+WHERE student_id =1 AND grade>60
+```
+
+一些运算符：$=,>,>=,<,<=,<>, AND, OR, NOT$
+
+BETWEEN
+
+IN, NOT IN
+
+LIKE，%：0个多个，_：一个字符
+
+
+
+【嵌套查询】
+
+
+
+```sql
+SELCET name
+FROM students
+WHERE age>(
+	SELECT AVG(age)
+    FROM students
+)
+
+/* s_c(sno,grade) */
+SELECT sno
+FROM s_c
+GROUP BY sno
+HAVING AVG(grade) >= ALL(
+	SLECT AVG(grade)
+    FROM S_C
+    GROUP BY (sno)
+)
+
+/*
+ x > ALL(sub query) ---> `true` only if x > all in sub query
+ x> some (sub query) ---> `true` if x > one element in sub query
+*/
+```
+
+
+
+
+
+
+
+
+
+
+
 
 
 

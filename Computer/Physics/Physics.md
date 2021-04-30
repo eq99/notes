@@ -164,3 +164,12 @@ $y(x,t)=A\cos(\omega(t-\frac{x}{u})+\varphi)$
 
 
 
+# 磁场
+
+
+
+$dB=\frac{\mu_0}{4\pi}\cdot\frac{dl\sin\theta}{r^2}$ 单位：$1T=1N\cdot A^{-1}\cdot m^{-1}$
+
+$\mu_0=4\pi\times10^{-7} N\cdot A^{-2}$
+
+无限长直导线：$B=\frac{\mu_0 I}{2\pi a}$
