@@ -1,3 +1,0 @@
-# notes
-
-My study notes.
