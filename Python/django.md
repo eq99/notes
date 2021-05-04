@@ -32,7 +32,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'app_name.apps.app_nameConfig', # activate the new app
+    'app_name.apps.App_nameConfig', # <---register the new app
 ]
 ```
 
@@ -48,11 +48,16 @@ urlpatterns = [
 ]
 ```
 
+Step 4: Write view functions
+
 In `app_name/views.py`
 
 ```python
+from django.http import HttpResponse
 
 
+def index(request):
+    return HttpResponse('hello')
 ```
 
 In `app_name/urls.py`
@@ -61,17 +66,38 @@ from django.urls import path
 from . import views
 
 urlpatterns = [
-    path('api/app_name/', views.LeadListCreate.as_view() ),
+    path('hello', views.index),
 ]
 ```
 
 
-Step 
+Step 5: Start server
+
+```shell
+python manage.py runserver
+```
+
+Step 6: Visit `localhost:8000/hello`
 
 
+# Database
 
+In `setting.py` :
+```python
+# Database
+# https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
-
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'test',
+        'USER': 'postgres',
+        'PASSWORD': '123456',
+        'HOST': '116.62.161.62',
+        'PORT': '5432'
+    }
+}
+```
 
 
 
