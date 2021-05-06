@@ -387,7 +387,7 @@ SQL 语言由相应的子语言组成：
 
 
 
-【数据库建模语言】
+## 数据库建模
 
 
 
@@ -432,11 +432,19 @@ CREATE [UNIQUE | CLUSTER] INDEX nameindex ON user(name);
 DROP INDEX nameinde
 
 DROP TABLE user [CASCADE|RESTRICT];
+
+CREATE VIEW v_good
+AS SELECT *
+FROM s_c
+WHERE grade > 90
+WITH CHECK OPTION
+
+DROP VIEW v_good [CASCADE|RESTRICT]
 ```
 
 
 
-【数据操纵】
+## 查
 
 ```sql
 SELECT [ALL|DISDINCT] name, age
@@ -491,6 +499,121 @@ HAVING AVG(grade) >= ALL(
 ```
 
 
+
+【连接】，假如有如下模式（表）：
+
+student(sno, sname, sex, age)
+
+course(cno, cname, classroom)
+
+s_c(sno, cno, grade)
+
+
+
+条件连接：
+
+```sql
+SELECT sno, sname, cno, grade
+FROM student, s_c
+WHRER student.sno=s_c.sno
+```
+
+
+
+条件连接可与嵌套连接互换。
+
+查询选修了“数据库”的学生学号，成绩
+
+```sql
+SELECT sno, grade
+FROM S_C
+WHERE cno IN (
+	SELCET * cno
+  FROM course
+  WHERE cname="数据库"
+)
+
+SELECT sno, grade
+FROM s_c, course
+WHERE s_c.cno=course.cno AND cname = "数据库"
+```
+
+
+
+表自身的连接
+
+查询年龄比“张三”大的学生姓名年龄
+
+```sql
+SELECT s1.sname, s1.age
+FROM  student s1, student s2
+WHERE s1.age > s2.age AND s2.sname = "张三"
+```
+
+
+
+相关子查询：子查询的判断条件设计父查询的属性
+
+查询选修了“005”号课程的学生姓名，学号
+
+```sql
+SELECT sname, sno
+FROM student
+WHERE EXISTS (
+	SELECT *
+  FROM s_c
+  WHERE s_c.sno=stuent.sno AND cno='005'
+)
+```
+
+
+
+外连接  LEFT JOIN, RIGHT JOIN, FULL JOIN
+
+```sql
+SELECT *
+FROM student LEFT JOIN s_c
+ON student.sno = s_c.sno
+```
+
+
+
+【集合操作】
+
+UNION, INTERSECT, EXCEPT
+
+```sql
+(SELECT * FROM st1)
+UNION
+(SELECT * FROM st2)
+```
+
+
+
+## 增删改
+
+
+
+```sql
+INSERT INTO student
+VALUES(200510, "李帅","男",20)
+```
+
+
+
+```sql
+UPDATE student
+SET age=22
+WHERE sno = 200510
+```
+
+
+
+```sql
+DELETE
+FROM
+WHERE sno=200510
+```
 
 
 
@@ -789,16 +912,6 @@ $R$ 中的任何一个非主属性都不传递函数依赖于 $R$ 中的任一�
 
 
 【3NF无损连接与函数依赖保持分解】
-
-
-
-
-
-
-
-
-
-
 
 
 

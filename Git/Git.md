@@ -18,6 +18,8 @@ This is for windows:
 git config --global user.email "youremail@email.com" user.name "yourname"
 # bueatiful git lg
 git config --global alias.lg "log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit"
+
+git config --global http.proxy 127.0.0.1:7890
 ```
 
 
