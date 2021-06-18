@@ -584,6 +584,14 @@ This chapter takes you through the design of a simple FLTK-based text editor.
 
 
 
+险像判断方法：
+
+1. 若 $F=A+\overline{A}$，则存在0险像。
+2. 若 $F=A\overline{A}$，则存在1险像。
+3. 若 $F=A(A+\overline{A}),F=\overline{A}(A+\overline{A}),F=A+A\overline{A},F=\overline{A}+A\overline{A})$，则存在0险像。
+
+
+
 消除方法：
 
 - 增加冗余，使延迟一致

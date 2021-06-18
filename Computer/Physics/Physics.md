@@ -164,12 +164,63 @@ $y(x,t)=A\cos(\omega(t-\frac{x}{u})+\varphi)$
 
 
 
-# 磁场
+# 恒定磁场
 
+电流密度：$\boldsymbol{j}=\frac{dI}{dS_0}\boldsymbol{e_n}$
 
+电流连续方程：$\oint_S \boldsymbol{j}\cdot d\boldsymbol{S}=-\frac{dQ}{dt}$
+
+电阻定律：$R=\rho \frac{l}{S}$
+
+微分形式欧姆定律：$\boldsymbol{j}=\sigma \boldsymbol{E}$
 
 $dB=\frac{\mu_0}{4\pi}\cdot\frac{dl\sin\theta}{r^2}$ 单位：$1T=1N\cdot A^{-1}\cdot m^{-1}$
 
 $\mu_0=4\pi\times10^{-7} N\cdot A^{-2}$
 
-无限长直导线：$B=\frac{\mu_0 I}{2\pi a}$
+无限长直导线周围磁场：$B=\frac{\mu_0 I}{2\pi a}$
+
+
+
+磁通量：$\varPhi=\int_s \boldsymbol{B}\cdot d\boldsymbol{S}$
+
+安培环路定里：$\oint_L \boldsymbol{B}\cdot d\boldsymbol{l}=\mu_0\sum I_i$
+
+
+
+安培力：$d\boldsymbol{F}=Id\boldsymbol{l}\times\boldsymbol{B}$
+
+洛伦兹力：$\boldsymbol{F}=q\boldsymbol{v}\times\boldsymbol{B}$
+
+
+
+# 电磁感应
+
+楞次定律：闭合回路中感应电流激发的磁场总是阻碍磁通量的变化。
+
+感生电动势：$\varepsilon=-\frac{d\Phi}{dt}$
+
+动生电动势：$d\varepsilon=(\boldsymbol{v}\times\boldsymbol{B})\cdot d\boldsymbol{l}$，或：$E=BLv$
+
+
+
+# 光干涉
+
+光强：$I\propto E^2$, $E$是电场强度矢量。
+
+相干光：振动方向相同，振动频率相同，相位差恒定
+
+
+
+【杨氏双缝干涉】
+
+明条纹：$\frac{d}{D}x=\pm k\lambda,k=0,1,2,...$
+
+暗条纹：$\frac{d}{D}x=\pm (2k+1)\frac{\lambda}{2},k=0,1,2,...$
+
+【薄膜干涉】
+
+光程差：$\delta_0=2e\sqrt{n_2^2-n_1^2\sin^2i}$
+
+考虑反射光的半波损失：$\delta_0+\delta^{\prime}$
+

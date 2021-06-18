@@ -69,6 +69,16 @@ volumes:
 
 
 
+# 删除镜像
+
+```shell
+docker rmi -f $(docker images demo -qa)
+```
+
+
+
+
+
 # docker-compose.yaml Example
 
 Example1: 
