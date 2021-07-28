@@ -60,6 +60,18 @@ $ pip install conan
 
 
 
+# 多态
+
+【重载多态】
+
+
+
+后置单目运算符++：Clock Clock::operator++(int)
+
+【虚函数】
+
+动态多态。
+
 
 
 

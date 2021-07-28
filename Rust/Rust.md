@@ -1,3 +1,7 @@
+
+
+Rust 微软教程：https://docs.microsoft.com/zh-cn/learn/paths/rust-first-steps/
+
 # Install
 
 [The official site](https://www.rust-lang.org/tools/install)
@@ -6,6 +10,8 @@
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
 rustc --version
 ```
+
+
 
 
 

@@ -146,11 +146,23 @@ $y(x,t)=A\cos(\omega(t-\frac{x}{u})+\varphi)$
 
 
 
+常见几何体转动惯量：
+
+
+
+平行轴定理：若有任一轴与过质心的轴平行，且该轴与过质心的轴相距为 $d$, 则 $I=I_c+md^2$。
+
+垂直轴定理：$I_Z=I_X+I_Y$。
+
+
+
 # 静电场
 
 定义式：$\vec{E}=\frac{\vec{F}}{q_0}$
 
 点电荷：$\vec{E}=\frac{q}{4\pi\varepsilon_0 r^2}\vec{e_r}$，矢量叠加，利用对称性，元电荷积分。
+
+$\frac{1}{4\pi\varepsilon_0}=9\times 10^9Nm^2C^{-2} $
 
 电通量：$\varPhi_e=\int \vec{E}\cdot d\vec{S}$
 
@@ -192,6 +204,8 @@ $\mu_0=4\pi\times10^{-7} N\cdot A^{-2}$
 
 洛伦兹力：$\boldsymbol{F}=q\boldsymbol{v}\times\boldsymbol{B}$
 
+磁力矩：$\boldsymbol{M}=NSI\boldsymbol{e_n}\times \boldsymbol{B}$
+
 
 
 # 电磁感应
@@ -222,5 +236,62 @@ $\mu_0=4\pi\times10^{-7} N\cdot A^{-2}$
 
 光程差：$\delta_0=2e\sqrt{n_2^2-n_1^2\sin^2i}$
 
-考虑反射光的半波损失：$\delta_0+\delta^{\prime}$
+考虑反射光的半波损失：$\delta_0+\delta^{\prime}$， 即光疏介质到光密介质的反射有：$\delta^{\prime}=\frac{\lambda}{2}$，否则 $\delta^{\prime}=$0。
+
+
+
+# 光的衍射
+
+单缝夫琅禾费衍射暗条纹：$a\sin(\theta)=\pm k\lambda,k=1,2,3,...$
+
+明条纹：$a\sin(\theta)=\pm (2k+1)\frac{\lambda}{2},k=1,2,3,...$
+
+并且 $\sin(\theta)\approx\theta$
+
+
+
+光栅方程：$d\sin(\theta)=\pm k\lambda,k=0,1,2...$，明条纹。
+
+缺级现象：同时满足：$d\sin(\theta)=\pm k\lambda, a\sin(\theta)=\pm k^{\prime}\lambda, k=\frac{d}{a}k^{\prime},k^{\prime}=1,2,3...$
+
+
+
+# 偏振光
+
+偏振度：$P=\frac{I_{max}-I_{min}}{I_{max}+I_{min}}$
+
+自然光通过偏振片：$I=\frac{1}{2}I_s$
+
+马吕斯定律：$I=I_0\cos^2(\alpha)$
+
+布儒斯特定律：$\tan(i_b)=\frac{n_2}{n_1}$
+
+![布儒斯特定律](布儒斯特定律.jpg)
+
+
+
+# 光电效应
+
+光电方程：$\frac{1}{2}mv_m^2=h\nu-A$
+
+波粒二象性：
+$$
+\varepsilon=h\nu \\
+p=\frac{h}{\lambda}
+$$
+
+
+# 康普顿效应
+
+波长偏移公式：$\Delta \lambda=\lambda_C(1-\cos(\theta))$，其中 $\lambda_C=\frac{h}{m_0c}=2.43\times 10^{-3}nm$
+
+
+
+# 氢原子
+
+
+
+能量：$h\nu=E_n-E_m$，其中 $E_n=\frac{E_1}{n^2}, E_1=-13.6eV$
+
+
 

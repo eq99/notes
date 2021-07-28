@@ -367,3 +367,8 @@ AUTH_USER_MODEL = 'user.User'
 
 ![短信验证码](短信验证码.png)
 
+
+
+# Django chat App
+
+ ![image-20210625230635242](image-20210625230635242.png)
