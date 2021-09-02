@@ -1,23 +1,18 @@
-到现在为止你已经学习会了如何使用 Python 变量，如何使用 Python 做数学运算，如何用 Python 处理字符串，如何使用 Python 中的函数，如何使用 Python 的循环与条件语句。接下来我们进入基础教程的最后一个重要主题：Python 中的列表和字典。
-
-
-
 # 列表 List
 
-【主题一】什么是列表？
+## 什么是列表？
 
 直接定义列表有些困难，可以通过观察例子对列表建立感性的认识。
 
 ```python
-numbers = [1,2,3,4]
+numbers = [1, 2, 3, 4]
 pets = ['二哈','猫咪','仓老鼠']
-adcs = ['鲁班七号', '虞姬', '伽罗', '后羿']
 empty = []
 ```
 
-从上面的例子说明列表是由`[]`括起来的一组对象，对象之间用`,`隔开。
+从上面的例子说明列表是由 `[]` 括起来的一组对象，对象之间用 `,` 隔开。
 
- 【主题二】如何创建列表？
+## 如何创建列表？
 
 1. 枚举列表中的元素：
 
@@ -29,7 +24,7 @@ print(computer_basics)
 
 
 
-2. 通过像空列表中添加元素:
+2. 通过向空列表中添加元素:
 
 ```python
 even_numbers = []
@@ -40,14 +35,38 @@ print(even_numbers)
 # [0, 2, 4, 6, 8]
 ```
 
+3. 通过列表推导式：
+
+```python
+odds = [2*k+1 for k in range(5)]
+print(odds)
+# [1, 3, 5, 7, 9]
+
+points = [(x,y) for x in range(3) for y in range(2,4)]
+print(points)
+# [(0, 2), (0, 3), (1, 2), (1, 3), (2, 2), (2, 3)]
+
+evens = [x for x in range(10) if x % 2 ==0]
+print(evens)
+# [0, 2, 4, 6, 8]
+```
+
+4. 列表的元素类型不一定相同
+
+```python
+infos = ["Looke", [2021, 8, 13], ("湖北", "武汉"), 1.0]
+print(infos)
+# ['Looke', [2021, 8, 13], ('湖北', '武汉'), 1.0]
+```
 
 
-【主题三】如何访问列表中的元素？
+
+## 如何访问列表中的元素？
 
 1. 通过下标访问
 
 ```python
-program_languages = ['Python', 'C++', 'java', 'golang', 'javascript', 'SQL', 'Rust']
+program_languages = ['Python', 'C++', 'Java', 'golang', 'javascript', 'SQL', 'Rust']
 
 print(f'学习 {program_languages[0]} 的人超帅!')
 ```
@@ -55,17 +74,19 @@ print(f'学习 {program_languages[0]} 的人超帅!')
 2. 通过`for...in...`访问
 
 ```python
-players = ['贝利','马拉多纳','C罗','梅西']
+players = ['贝利', '马拉多纳', 'C罗', '梅西']
 
 for player in players:
   print(player)
 ```
 
-【主题四】如何获取列表中部分元素？
 
-通过切片的方式，切片的模式为`[i:j:k]`，其中`i`为起始下标，如果省略，则为0；`j`为结束下标，如果省略，最为最后一个元素；`k`为步长，如果省略，则为1。
 
-如果`i,j`为负数，代表从最后一个元素向前数。
+## 如何获取列表中部分元素？
+
+通过切片的方式，切片的模式为`[i:j:k]`，其中`i`为起始下标，如果省略，则为0；`j`为结束下标，如果省略，最为最后一个元素；`k`为步长，如果省略，则为1。如果`i,j`为负数，代表从最后一个元素向前数。
+
+请看示例：
 
 ```python
 pi = [3,1,4,1,5,9,2,6]
@@ -91,11 +112,25 @@ print(y5)
 # [2]
 ```
 
-**注意**：`[i,j]`表示的区间是左闭右开 $[i,j)$
+:bulb: `[i,j]` 表示的区间是左闭右开 $[i,j)$
 
 
 
-【主题五】如何合并两个列表？
+## 如何合并两个列表？
+
+你可以迭代两个列表的元素把它加入到新的列表里面，不过还有如下方法：
+
+1. 加法
+
+```python
+evens = [0,2,4,8,10]
+odds = [1,3,5,7,9]
+numbers = evens + odds
+print(numbers)
+# [0, 2, 4, 8, 10, 1, 3, 5, 7, 9]
+```
+
+2. 序列解包
 
 ```python
 evens = [0,2,4,8,10]
@@ -105,11 +140,71 @@ print(numbers)
 # [0, 2, 4, 8, 10, 1, 3, 5, 7, 9]
 ```
 
+3. `extend()`
 
+```python
+evens = [0,2,4,8,10]
+odds = [1,3,5,7,9]
+evens.extend(odds)
+print(evens)
+# [0, 2, 4, 8, 10, 1, 3, 5, 7, 9]
+```
+
+
+
+## 常用函数
+
+| 函数       | 描述                                                         |
+| :--------- | :----------------------------------------------------------- |
+| `append()` | 在列表末尾添加新的对象                                       |
+| `count()`  | 统计某个元素在列表中出现的次数                               |
+| `insert()` | 将对象插入列表                                               |
+| `pop()`    | 移除列表中的一个元素（默认最后一个元素），并且返回该元素的值 |
+| `remove()` | 移除列表中某个值的第一个匹配项                               |
+| `sort()`   | 对原列表进行排序                                             |
+| `clear()`  | 清空列表                                                     |
+| `len()`    | 求数组元素个数                                               |
+| `min()`    | 求最小值                                                     |
+| `max()`    | 求最大值                                                     |
+| `sum()`    | 求和                                                         |
+
+示例程序：
+
+```python
+fruits = ['orange', 'apple', 'pear', 'banana', 'kiwi', 'apple', 'banana']
+
+print(fruits.count('apple'))
+# 2
+
+fruits.sort()
+print(fruits)
+# ['apple', 'apple', 'banana', 'banana', 'kiwi', 'orange', 'pear']
+
+print(len(fruits))
+# 7
+
+print(fruits.pop())
+print(len(fruits))
+# pear
+# 6
+
+from random import randint
+numbers = [randint(1, 20) for i in range(6)]
+print(numbers)
+print(f'min: {min(numbers)}, max: {max(numbers)}, sum: {sum(numbers)}')
+# [14, 7, 16, 6, 14, 9]
+# min: 6, max: 16, sum: 66
+```
+
+更多用法请阅读：
+
+- [5. 数据结构 — Python 3.9.7 文档](https://docs.python.org/zh-cn/3/tutorial/datastructures.html)
+
+- [内置类型 — Python 3.9.7 文档](https://docs.python.org/zh-cn/3/library/stdtypes.html#sequence-types-list-tuple-range)
 
 # 字典
 
-【主题一】什么是字典？
+## 什么是字典？
 
 先看两个字典的例子：
 
@@ -135,11 +230,11 @@ computer = {
 print(computer)
 ```
 
-从上面的例子可以看出字典是用`{}`括起来的键值对 (key-value)。键值对之间用`,`分隔。同时可以看出字典可以清楚的描述对象的属性。
+从上面的例子可以看出字典是用 `{}` 括起来的键值对 (key-value)。键值对之间用 `,` 分隔。同时可以看出字典可以清楚的描述对象的属性。
 
-【主题二】如何建立字典？
+## 如何建立字典？
 
-1. 通过前一个例子那样的枚举法。
+1. 像前一个例子那样的枚举法。
 2. 向空字典中添加条目：
 
 ```python
@@ -150,11 +245,11 @@ print(menu)
 # {'广东烧鹅': '￥99.8'}
 ```
 
-如果你想用`append()`，不好意思`AttributeError: 'dict' object has no attribute 'append'`。
+想用 `append()` ？不好意思，对字典使用会报错：  `AttributeError: 'dict' object has no attribute 'append'` 。
 
-【主题三】如何访问字典中的元素？
+## 如何访问字典中的元素？
 
-1. 通过键 (key) 访问值(value)
+1. 通过键 (key) 访问值 (value)
 
 ```python
 computer = {
@@ -262,7 +357,7 @@ for key, value in computer.items():
 # 机箱 DF700Flux
 ```
 
-【主题四】合并两个字典。
+## 怎么合并两个字典？
 
 ```python
 database = {
@@ -290,7 +385,5 @@ print(config)
 
 # 总结
 
-列表与字典是 Python 最常见的两种容器对象。除了上述基本的用法之外还有其他用法，更多用法可以参考官网 [数据结构](https://docs.python.org/zh-cn/3/tutorial/datastructures.html)一章。
-
-值得注意的是列表与字典的值可以不仅仅是数字，字符串这样的对象，还可以是列表，字典，函数等。
+列表与字典是 Python 最常见的两种容器对象，Python 还有元组 （tuple），集合 (set) 等容器，更多知识可以阅读：[5. 数据结构 — Python 3.9.7 文档](https://docs.python.org/zh-cn/3/tutorial/datastructures.html)
 
