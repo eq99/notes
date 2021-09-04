@@ -1,6 +1,6 @@
 # 数字
 
-Python 支持 `Int, Float , Complex` 等数字类型，并且可以表示成常见的进制。
+Python 支持 `int, float , Complex` 等数字类型，并且可以表示成常见的进制。
 
 以下都是合法的整数：
 
@@ -86,7 +86,7 @@ print('\U0001F4AF')
 
 ## 什么是 raw string?
 
-Raw string 以`r`开头，转义符无效，当做普通的 `\`。
+Raw string 以`r` 开头，转义符无效，当做普通的 `\\`。
 
 示例1：
 

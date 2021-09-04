@@ -14,7 +14,7 @@ empty = []
 
 ## 如何创建列表？
 
-1. 枚举列表中的元素：
+1）枚举列表中的元素：
 
 ```python
 computer_basics = ['数学','编程设计','计算机组成原理','算法与数据结构','操作系统','计算机网络','编译原理','数据库']
@@ -22,9 +22,7 @@ computer_basics = ['数学','编程设计','计算机组成原理','算法与数
 print(computer_basics)
 ```
 
-
-
-2. 通过向空列表中添加元素:
+2）通过向空列表中添加元素:
 
 ```python
 even_numbers = []
@@ -35,7 +33,7 @@ print(even_numbers)
 # [0, 2, 4, 6, 8]
 ```
 
-3. 通过列表推导式：
+3）通过列表推导式：
 
 ```python
 odds = [2*k+1 for k in range(5)]
@@ -51,7 +49,7 @@ print(evens)
 # [0, 2, 4, 6, 8]
 ```
 
-4. 列表的元素类型不一定相同
+4）列表的元素类型不一定相同
 
 ```python
 infos = ["Looke", [2021, 8, 13], ("湖北", "武汉"), 1.0]
@@ -63,7 +61,7 @@ print(infos)
 
 ## 如何访问列表中的元素？
 
-1. 通过下标访问
+1）通过下标访问
 
 ```python
 program_languages = ['Python', 'C++', 'Java', 'golang', 'javascript', 'SQL', 'Rust']
@@ -71,7 +69,7 @@ program_languages = ['Python', 'C++', 'Java', 'golang', 'javascript', 'SQL', 'Ru
 print(f'学习 {program_languages[0]} 的人超帅!')
 ```
 
-2. 通过`for...in...`访问
+2）通过`for...in...`访问
 
 ```python
 players = ['贝利', '马拉多纳', 'C罗', '梅西']
@@ -120,7 +118,7 @@ print(y5)
 
 你可以迭代两个列表的元素把它加入到新的列表里面，不过还有如下方法：
 
-1. 加法
+1）加法
 
 ```python
 evens = [0,2,4,8,10]
@@ -130,7 +128,7 @@ print(numbers)
 # [0, 2, 4, 8, 10, 1, 3, 5, 7, 9]
 ```
 
-2. 序列解包
+2）序列解包
 
 ```python
 evens = [0,2,4,8,10]
@@ -140,7 +138,7 @@ print(numbers)
 # [0, 2, 4, 8, 10, 1, 3, 5, 7, 9]
 ```
 
-3. `extend()`
+3）`extend()`
 
 ```python
 evens = [0,2,4,8,10]
@@ -234,8 +232,9 @@ print(computer)
 
 ## 如何建立字典？
 
-1. 像前一个例子那样的枚举法。
-2. 向空字典中添加条目：
+1）像前一个例子那样的枚举法。
+
+2）向空字典中添加条目：
 
 ```python
 menu = {}
@@ -249,7 +248,7 @@ print(menu)
 
 ## 如何访问字典中的元素？
 
-1. 通过键 (key) 访问值 (value)
+1）通过键 (key) 访问值 (value)
 
 ```python
 computer = {
@@ -286,7 +285,7 @@ print(computer['散热'])
 # KeyError: '散热'
 ```
 
-2. 通过`get()`方法
+2）通过 `get()` 方法
 
 ```python
 computer = {
@@ -307,7 +306,7 @@ print(computer.get('散热'))
 
 你发现这两种方法的区别了吗？
 
-3. 通过`for...in...` 方法
+3）通过 `for...in...` 方法
 
 ```python
 computer = {
